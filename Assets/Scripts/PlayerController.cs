@@ -185,7 +185,7 @@ public class PlayerController : MonoBehaviour
         }
         catch (Exception e)
         {
-
+            Debug.LogError(e);
         }
     }
 
