@@ -5,7 +5,6 @@ using UnityEngine.Video;
 public class VideoEndDetector : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
-    public string videoScene;
 
     void Start()
     {
@@ -26,6 +25,7 @@ public class VideoEndDetector : MonoBehaviour
     {
         AudioClip mainMusic = Resources.Load<AudioClip>("Music/main2");
         AudioManager.Instance.PlayMusic(mainMusic, true);
-        SceneManager.UnloadSceneAsync(videoScene);
+
+        SceneTransition.Instance.StartTransitionUnload(Constants.videoSceneString, Constants.settingsFadeTime);
     }
 }

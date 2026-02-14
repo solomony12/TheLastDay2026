@@ -5,6 +5,6 @@ public class CreditsPageScript : MonoBehaviour
 {
     public void Return()
     {
-        SceneManager.UnloadSceneAsync("CreditsPage");
+        SceneTransition.Instance.StartTransitionUnload(Constants.creditsSceneString, Constants.settingsFadeTime);
     }
 }
