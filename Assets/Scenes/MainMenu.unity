@@ -1295,7 +1295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &405487603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1392,7 +1392,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneTransition
   fadeImage: {fileID: 1804769243}
-  fadeDuration: 1
 --- !u!1 &415405807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1855,7 +1854,7 @@ MonoBehaviour:
   musicSource: {fileID: 0}
   sfxSource: {fileID: 0}
   voiceSource: {fileID: 0}
-  backgroundHum: {fileID: 0}
+  ambientSource: {fileID: 0}
   musicFadeDuration: 0.5
 --- !u!1 &1446319727
 GameObject:
@@ -1904,8 +1903,11 @@ MonoBehaviour:
   musicVolume: 0.3
   sfxVolume: 1
   voiceVolume: 1
+  ambientVolume: 0.5
   mouseSensitivity: 2
   vsync: 1
+  fullscreenModeIndex: 1
+  resolutionIndex: 0
 --- !u!1 &1457834132
 GameObject:
   m_ObjectHideFlags: 0
@@ -2360,10 +2362,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Soli (iveseanyori), Thatcher (Cilantro Lime Rice), Isabel,
+  m_text: 'Soli (iveseanyori), Thatcher (Cilantro Lime Rice), Isabel (IS369),
 
     Quinn,
-    Berkeley (Wiser the Nerd), Eric (bro)'
+    Berkeley (Wiser the Nerd), Eric (bro)IS369'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

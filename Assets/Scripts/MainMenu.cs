@@ -21,7 +21,7 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        SceneTransition.Instance.StartOpeningCutscene(playSceneName);
+        SceneTransition.Instance.StartTransition(playSceneName);
     }
 
     public void Tutorial()

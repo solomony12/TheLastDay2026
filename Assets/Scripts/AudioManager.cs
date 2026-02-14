@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource sfxSource;
     [SerializeField] private AudioSource voiceSource;
-    [SerializeField] private AudioSource backgroundHum;
+    [SerializeField] private AudioSource ambientSource;
 
     [Header("Music Transition")]
     [SerializeField] private float musicFadeDuration = 0.5f;
@@ -33,18 +33,13 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
-        // Continuously sync volumes from GameSettings
+        // Continuously sync volumes from Settings
         if (GameSettings.Instance == null) return;
 
         musicSource.volume = GameSettings.Instance.musicVolume;
         sfxSource.volume = GameSettings.Instance.sfxVolume;
         voiceSource.volume = GameSettings.Instance.voiceVolume;
-
-        // Lowest is 0.1 unless SFX is 0, in which it's also 0
-        float sfx = GameSettings.Instance.sfxVolume;
-        backgroundHum.volume = sfx == 0f
-            ? 0f
-            : Mathf.Max(0.1f, sfx - 0.3f);
+        ambientSource.volume = GameSettings.Instance.ambientVolume;
     }
 
     private void InitializeSources()
@@ -74,11 +69,11 @@ public class AudioManager : MonoBehaviour
         }
 
         // Hum source
-        if (backgroundHum == null)
+        if (ambientSource == null)
         {
-            backgroundHum = gameObject.AddComponent<AudioSource>();
-            backgroundHum.loop = true;
-            backgroundHum.playOnAwake = true;
+            ambientSource = gameObject.AddComponent<AudioSource>();
+            ambientSource.loop = true;
+            ambientSource.playOnAwake = true;
         }
 
     }
@@ -125,7 +120,7 @@ public class AudioManager : MonoBehaviour
         musicFadeRoutine = StartCoroutine(FadeMusicRoutine(newClip, duration));
     }
 
-    private System.Collections.IEnumerator FadeMusicRoutine(AudioClip newClip, float duration)
+    private IEnumerator FadeMusicRoutine(AudioClip newClip, float duration)
     {
         float startVolume = musicSource.volume;
 
@@ -157,7 +152,6 @@ public class AudioManager : MonoBehaviour
 
 
     // SFX
-
     public void PlaySFX(AudioClip clip)
     {
         if (clip == null) return;
@@ -220,22 +214,29 @@ public class AudioManager : MonoBehaviour
         return voiceSource.isPlaying;
     }
 
-    // Background Hum
-    public void PlayBackgroundHum(AudioClip clip)
+    // Ambient
+    public void PlayAmbient(AudioClip clip)
     {
         if (clip == null) return;
 
         if (musicSource.clip == clip && musicSource.isPlaying)
             return;
 
-        backgroundHum.clip = clip;
-        backgroundHum.Play();
+        ambientSource.clip = clip;
+        ambientSource.Play();
     }
 
-    public void StopBackgroundHum()
+    public void StopAmbient()
     {
-        backgroundHum.Stop();
-        backgroundHum.clip = null;
+        ambientSource.Stop();
+        ambientSource.clip = null;
+    }
+
+    public void PlayAmbientOneShot(AudioClip clip, float volumeMultiplier = 1f)
+    {
+        if (clip == null) return;
+
+        ambientSource.PlayOneShot(clip, volumeMultiplier);
     }
 
     private void OnEnable()
@@ -250,79 +251,19 @@ public class AudioManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        //Debug.Log("Scene Loaded: " + scene.name);
-
-        if (SceneManager.GetSceneByName("TutorialVideo").isLoaded)
-        {
-            StopMusic();
-        }
 
         if (mode == LoadSceneMode.Additive)
             return;
 
-        StopBackgroundHum();
+        StopAmbient();
 
         switch (scene.name)
         {
             case "MainMenu":
-                //Debug.Log("MainMenu");
-                AudioClip fasterMusic = Resources.Load<AudioClip>("Music/main2");
-                SwitchMusic(fasterMusic, 0.1f);
+                SwitchMusic(Constants.mainMusic, 0.1f);
                 break;
-            case "1_IntroScene":
-                //Debug.Log("Intro Scene Loaded");
-                StopMusic();
-                StartCoroutine(WaitForIntro());
-                break;
-
-            case "2_Warehouse_Scene":
-                //Debug.Log("Warehouse Loaded");
-
-                // Office music for the warehouse
-                AudioClip officeMusic = Resources.Load<AudioClip>("Music/office");
-                SwitchMusic(officeMusic);
-
-
-                AudioClip hum = Resources.Load<AudioClip>("Sounds/loud-machinery-449526");
-                PlayBackgroundHum(hum);
-                break;
-
-            case "3_FactoryFloor":
-                //Debug.Log("Factory Loaded");
-
-                // Warehouse music for factory
-                AudioClip warehouseMusic = Resources.Load<AudioClip>("Music/warehouse");
-                SwitchMusic(warehouseMusic);
-
-                hum = Resources.Load<AudioClip>("Sounds/loud-machinery-449526");
-                PlayBackgroundHum(hum);
-                break;
-
-            case "4_Office":
-                //Debug.Log("Office Loaded");
-
-                // Factory music carries over to Office before blackout ends it
-
-                AudioClip officeHum = Resources.Load<AudioClip>("Sounds/low-engine-hum-72529_LV4");
-                PlayBackgroundHum(officeHum);
-                break;
-
-            case "6_FinalArea":
-                //Debug.Log("Final Area Loaded");
-                // Do Final Area stuff here
-                StopMusic();
-                break;
-
-            case "7_EndingLevel":
-                //Debug.Log("Ending Level Loaded");
-                StopMusic();
-                AudioClip heartbeat = Resources.Load<AudioClip>("Sounds/heartbeat-sound-372448_LV7");
-                PlayBackgroundHum(heartbeat);
-                break;
-
-            case "TimedGameOverScene":
-                AudioClip staticHum = Resources.Load<AudioClip>("Sounds/tv-static-323620");
-                PlayBackgroundHum(staticHum);
+            case "Courtyard":
+                PlayAmbient(Constants.hum);
                 break;
 
             default:
@@ -331,11 +272,4 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private IEnumerator WaitForIntro()
-    {
-        float waitTime = SceneTransition.videoLength - 2;
-        yield return new WaitForSeconds(waitTime);
-        AudioClip fasterMusic = Resources.Load<AudioClip>("Music/main2");
-        PlayMusic(fasterMusic);
-    }
 }

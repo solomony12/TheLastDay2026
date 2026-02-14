@@ -7,23 +7,13 @@ using System;
 public class SceneTransition : MonoBehaviour
 {
     public Image fadeImage;
-    [SerializeField] private float fadeDuration = 1f;
-
-    private CanvasGroup canvasGroup;
+    private CanvasGroup fadeCanvasGroup;
 
     public static SceneTransition Instance { get; private set; }
 
     public static bool IsTransitioning = false;
 
-    [Header("GameObjects")]
-    private Camera mainCamera;
-    private GameObject player;
-    private GameObject gun;
-    private GameObject canvas;
-
-    private Animator cameraAnimator;
-
-    public static float videoLength = 32f; // TODO: 32f
+    private GameObject uiCanvas;
 
     private void Awake()
     {
@@ -37,46 +27,77 @@ public class SceneTransition : MonoBehaviour
             Destroy(gameObject);
         }
 
-        canvasGroup = fadeImage.GetComponent<CanvasGroup>();
-        if (canvasGroup == null)
-            canvasGroup = fadeImage.gameObject.AddComponent<CanvasGroup>();
+        fadeCanvasGroup = fadeImage.GetComponent<CanvasGroup>();
+        if (fadeCanvasGroup == null)
+            fadeCanvasGroup = fadeImage.gameObject.AddComponent<CanvasGroup>();
 
-        canvasGroup.blocksRaycasts = false;
+        fadeCanvasGroup.blocksRaycasts = false;
         fadeImage.color = new Color(0, 0, 0, 0);
 
-        canvas = GameObject.FindWithTag("GameCanvas");
-        canvas.SetActive(false);
+        //uiCanvas = GameObject.FindWithTag("UI_Canvas"); // TODO: Make tag and canvas
+        //uiCanvas.SetActive(false);
     }
 
-    public void StartTransition(string sceneName)
+    public void StartTransition(string sceneName, LoadSceneMode sceneMode = LoadSceneMode.Single, float fadeDuration = 1f)
     {
-        StartCoroutine(FadeAndLoad(sceneName));
+        StartCoroutine(FadeAndLoad(sceneName, sceneMode, fadeDuration));
     }
 
-    private IEnumerator FadeAndLoad(string sceneName)
+    private IEnumerator FadeAndLoad(string sceneName, LoadSceneMode sceneMode, float fadeDuration)
     {
         // Block clicks
-        canvasGroup.blocksRaycasts = true;
+        fadeCanvasGroup.blocksRaycasts = true;
         IsTransitioning = true;
         PlayerController.DisablePlayerControl();
 
         // Fade in
-        yield return StartCoroutine(Fade(0f, 1f));
+        yield return StartCoroutine(Fade(0f, 1f, fadeDuration));
 
         // Load the new scene
-        yield return SceneManager.LoadSceneAsync(sceneName);
+        yield return SceneManager.LoadSceneAsync(sceneName, sceneMode);
         PlayerController.DisablePlayerControl();
 
         // Fade out
-        yield return StartCoroutine(Fade(1f, 0f));
+        yield return StartCoroutine(Fade(1f, 0f, fadeDuration));
 
         // Allow clicks again
-        canvasGroup.blocksRaycasts = false;
+        fadeCanvasGroup.blocksRaycasts = false;
         IsTransitioning = false;
         PlayerController.EnablePlayerControl();
     }
 
-    private IEnumerator Fade(float startAlpha, float endAlpha)
+    /// <summary>
+    /// Used to unload the current additive scene
+    /// </summary>
+    /// <param name="sceneName"></param>
+    /// <param name="fadeDuration"></param>
+    public void StartTransitionUnload(string sceneName, float fadeDuration = 1f)
+    {
+        StartCoroutine(FadeAndUnload(sceneName, fadeDuration));
+    }
+
+    private IEnumerator FadeAndUnload(string sceneName, float fadeDuration)
+    {
+        // Block clicks
+        fadeCanvasGroup.blocksRaycasts = true;
+        IsTransitioning = true;
+
+        // Fade in
+        yield return StartCoroutine(Fade(0f, 1f, fadeDuration));
+
+        // Unload the additive scene
+        yield return SceneManager.UnloadSceneAsync(sceneName);
+
+        // Fade out
+        yield return StartCoroutine(Fade(1f, 0f, fadeDuration));
+
+        // Allow clicks again
+        fadeCanvasGroup.blocksRaycasts = false;
+        IsTransitioning = false;
+        PlayerController.EnablePlayerControl();
+    }
+
+    private IEnumerator Fade(float startAlpha, float endAlpha, float fadeDuration)
     {
         float timer = 0f;
 
@@ -91,61 +112,4 @@ public class SceneTransition : MonoBehaviour
         fadeImage.color = new Color(0, 0, 0, endAlpha);
     }
 
-    public void StartOpeningCutscene(string sceneName)
-    {
-        StartCoroutine(FadeAndLoadOpening(sceneName));
-    }
-
-    private IEnumerator FadeAndLoadOpening(string sceneName)
-    {
-        // Block clicks
-        canvasGroup.blocksRaycasts = true;
-        IsTransitioning = true;
-
-        // Fade in
-        yield return StartCoroutine(Fade(0f, 2f));
-
-        // Load the new scene
-        yield return SceneManager.LoadSceneAsync(sceneName);
-
-        // Set variables upon scene loaded
-        mainCamera = Camera.main;
-        player = GameObject.FindWithTag("Player");
-        gun = GameObject.FindWithTag("Gun");
-        cameraAnimator = mainCamera.GetComponent<Animator>();
-        cameraAnimator.ResetTrigger("StartZoomingOut");
-        PlayerController.DisablePlayerControl();
-
-        // Set views (animation for camera is already set)
-        gun.SetActive(false);
-        //try { canvas.SetActive(false); }
-        //catch (Exception e) { Debug.Log(e);  }
-
-        // Fade out
-        yield return StartCoroutine(Fade(0.5f, 0f));
-
-        // Allow clicks again
-        canvasGroup.blocksRaycasts = false;
-
-        float zoomLength = 10f;
-        float lengthOfVideoMinusZoom = videoLength - zoomLength;
-        yield return new WaitForSeconds(lengthOfVideoMinusZoom);
-
-        // As the video nears the end, we start zooming out
-        cameraAnimator.SetTrigger("StartZoomingOut");
-
-        yield return new WaitForSeconds(zoomLength);
-
-        // Start game
-        gun.SetActive(true);
-        canvas.SetActive(true);
-        Captions.Instance.HideCaptions(0f);
-        Destroy(cameraAnimator); // this is cause it breaks the camera crouching
-        PlayerController.Instance.StartingPositionSet(0.2f);
-        yield return new WaitForSeconds(0.2f);
-        IsTransitioning = false;
-        PlayerController.EnablePlayerControl();
-        PlayerController.Instance.ForceStanding();
-        Captions.Instance.TimedShowCaptions("Explore the factory\n([W/A/S/D], [Space], [Left Ctrl], [Left Shift])", 10f);
-    }
 }
