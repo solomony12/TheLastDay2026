@@ -38,7 +38,7 @@ public class PlayerInputHandler : MonoBehaviour
     public float SprintValue { get; private set; }
     public bool InteractTriggered { get; private set; }
     public bool EscapeTriggered { get; private set; }
-    public bool ScanTriggered { get; private set; }
+    public bool ShootTriggered { get; private set; }
 
     public static PlayerInputHandler Instance { get; private set; }
 
@@ -89,8 +89,8 @@ public class PlayerInputHandler : MonoBehaviour
         escapeAction.performed += context => EscapeTriggered = true;
         escapeAction.canceled += context => EscapeTriggered = false;
 
-        shootAction.performed += context => ScanTriggered = true;
-        shootAction.canceled += context => ScanTriggered = false;
+        shootAction.performed += context => ShootTriggered = true;
+        shootAction.canceled += context => ShootTriggered = false;
     }
 
     private void OnEnable()
