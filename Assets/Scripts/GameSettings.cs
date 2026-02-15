@@ -1,6 +1,7 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AdaptivePerformance;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -67,6 +68,7 @@ public class GameSettings : MonoBehaviour
         // Resume
         if (SceneManager.GetSceneByName(Constants.settingsSceneString).isLoaded)
         {
+            ToggleZombiesMovement(true);
             SettingsMenuUI.SettingsIsOpen = false;
             Cursor.lockState = CursorLockMode.Locked;
             PlayerController.EnablePlayerControl();
@@ -75,11 +77,38 @@ public class GameSettings : MonoBehaviour
         // Pause
         else
         {
+            ToggleZombiesMovement(false);
             SettingsMenuUI.SettingsIsOpen = true;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             PlayerController.DisablePlayerControl();
             SceneManager.LoadScene(Constants.settingsSceneString, LoadSceneMode.Additive);
+        }
+    }
+
+    private void ToggleZombiesMovement(bool toMove)
+    {
+        GameObject[] zombies = GameObject.FindGameObjectsWithTag(Constants.zombieTag);
+        foreach (GameObject zombie in zombies)
+        {
+            ZombieAI ai = zombie.GetComponent<ZombieAI>();
+        }
+
+        if (toMove)
+        {
+            foreach (GameObject zombie in zombies)
+            {
+                ZombieAI ai = zombie.GetComponent<ZombieAI>();
+                ai.ResumeZombie();
+            }
+        }
+        else
+        {
+            foreach (GameObject zombie in zombies)
+            {
+                ZombieAI ai = zombie.GetComponent<ZombieAI>();
+                ai.PauseZombie();
+            }
         }
     }
 

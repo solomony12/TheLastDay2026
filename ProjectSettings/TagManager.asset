@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Gun
   - Zombie
+  - HoverCaptions
+  - GameCanvas
+  - Captions
+  - CuresText
   layers:
   - Default
   - TransparentFX
