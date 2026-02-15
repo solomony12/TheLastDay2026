@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float crouchMultiplier = 0.75f;
 
     [Header("Look Sensitivity")]
-    private float mouseSensitivity => 1f; //GameSettings.Instance.mouseSensitivity;
+    private float mouseSensitivity => GameSettings.Instance.mouseSensitivity;
     [SerializeField] private float upDownRange = 80.0f;
 
     [Header("Jump Parameters")]
