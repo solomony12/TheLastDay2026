@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,10 +12,23 @@ public class ZombieAI : MonoBehaviour
 
     public bool targetSpotted = false;
 
+    [Header("Idle Settings")]
+    public float idleRadius = 3f;
+    public float idleSpeed = 1.5f;
+    public float lookAroundTime = 2f;
+    public float waitTimeMin = 1f;
+    public float waitTimeMax = 4f;
+
+    private Vector3 idleCenter;
+    private bool isIdling = false;
+
+    Coroutine idleCoroutine;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         InitializeAgentInfo();
+        idleCoroutine = StartCoroutine(IdleMovement());
     }
 
     private void Update()
@@ -27,6 +41,8 @@ public class ZombieAI : MonoBehaviour
         agent.speed = 1.0f;
         agent.acceleration = 1.0f;
         agent.stoppingDistance = 0.1f;
+
+        idleCenter = transform.position;
     }
 
     private void MoveToTarget()
@@ -48,10 +64,14 @@ public class ZombieAI : MonoBehaviour
                     float angleToTarget = Vector3.Angle(transform.forward, direction);
                     if (targetSpotted || angleToTarget <= viewAngle / 2)
                     {
+                        if (idleCoroutine != null)
+                        {
+                            StopCoroutine(idleCoroutine);
+                            idleCoroutine = null;
+                        }
                         targetSpotted = true;
                         agent.isStopped = false;
                         agent.SetDestination(target.position);
-                        Debug.Log("Chase");
                         return;
                     }
                 }
@@ -59,7 +79,50 @@ public class ZombieAI : MonoBehaviour
         }
 
         targetSpotted = false;
-        agent.isStopped = true;
+
+        if (idleCoroutine == null)
+        {
+            idleCoroutine = StartCoroutine(IdleMovement());
+        }
+    }
+
+    private IEnumerator IdleMovement()
+    {
+        while (true)
+        {
+            if (!isIdling)
+            {
+                // Pick a random point within idleRadius
+                Vector3 randomPoint = idleCenter + Random.insideUnitSphere * idleRadius;
+                randomPoint.y = transform.position.y; // Keep same height
+
+                // Check if the point is on the NavMesh
+                if (NavMesh.SamplePosition(randomPoint, out NavMeshHit hit, 1f, NavMesh.AllAreas))
+                {
+                    agent.speed = idleSpeed;
+                    agent.SetDestination(hit.position);
+                    agent.isStopped = false;
+                    isIdling = true;
+                }
+            }
+
+            // Wait until zombie reaches the destination
+            if (isIdling && !agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+            {
+                // Pause and look around
+                agent.isStopped = true;
+                yield return new WaitForSeconds(lookAroundTime);
+                isIdling = false;
+
+                // Wait a random time before next wander
+                float wait = Random.Range(waitTimeMin, waitTimeMax);
+                yield return new WaitForSeconds(wait);
+            }
+            else
+            {
+                yield return null;
+            }
+        }
     }
 
     public void ZombieCured()
