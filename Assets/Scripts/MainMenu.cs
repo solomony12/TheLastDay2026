@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
 
     public void Tutorial()
     {
-        SceneManager.LoadScene(Constants.tutorialSceneName, LoadSceneMode.Additive);
+        SceneTransition.Instance.StartTransition(Constants.tutorialSceneName, LoadSceneMode.Additive, Constants.settingsFadeTime);
         tutorialPlayed = true;
         playButton.interactable = tutorialPlayed;
     }
@@ -30,12 +30,12 @@ public class MainMenu : MonoBehaviour
     public void Settings()
     {
         SettingsMenuUI.SettingsIsOpen = true;
-        SceneManager.LoadScene(Constants.settingsSceneString, LoadSceneMode.Additive);
+        SceneTransition.Instance.StartTransition(Constants.settingsSceneString, LoadSceneMode.Additive, Constants.settingsFadeTime);
     }
 
     public void Credits()
     {
-        SceneManager.LoadScene("CreditsPage", LoadSceneMode.Additive);
+        SceneTransition.Instance.StartTransition(Constants.creditsSceneString, LoadSceneMode.Additive, Constants.settingsFadeTime);
     }
 
     public void Quit()

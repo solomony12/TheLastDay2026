@@ -2347,8 +2347,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Soli (iveseanyori), Thatcher (Cilantro Lime Rice), Isabel (IS369),
 
-    Quinn,
-    Berkeley (Wiser the Nerd), Eric (bro)IS369'
+    Quinn
+    (Buh), Berkeley (Wiser the Nerd), Eric (bro)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
