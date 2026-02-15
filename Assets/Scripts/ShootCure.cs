@@ -19,8 +19,8 @@ public class ShootCure : MonoBehaviour
     private CureSystem cureSystem;
 
     [Header("Distance to Shoot")]
-    private float maxPlayerObjectDistance = 5f;
-    private float maxCameraObjectDistance = 3f;
+    private float maxPlayerObjectDistance = 3f;
+    private float maxCameraObjectDistance = 2f;
 
     [Header("Audio")]
     [SerializeField] private AudioClip shootClip;
