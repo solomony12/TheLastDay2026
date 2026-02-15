@@ -157,25 +157,42 @@ public class GameSettings : MonoBehaviour
 
     public void ApplyDisplaySettings()
     {
+        if (resolutions == null || resolutions.Length == 0)
+        {
+            resolutions = Screen.resolutions
+                .Where(r => IsSameAspectRatio(r, 16, 9))
+                .ToArray();
+        }
+
+        // Clamp index
+        resolutionIndex = Mathf.Clamp(resolutionIndex, 0, resolutions.Length - 1);
+        Resolution targetRes = resolutions[resolutionIndex];
+
         // Fullscreen mode
         FullScreenMode mode = fullscreenModeIndex switch
         {
             0 => FullScreenMode.Windowed,
-            1 => FullScreenMode.FullScreenWindow,
+            1 => FullScreenMode.FullScreenWindow, // borderless
             2 => FullScreenMode.ExclusiveFullScreen,
             _ => FullScreenMode.FullScreenWindow
         };
 
         Screen.fullScreenMode = mode;
 
-        // Resolution
-        if (resolutions != null && resolutions.Length > 0)
+        // Only set resolution in windowed or exclusive fullscreen
+        if (mode != FullScreenMode.FullScreenWindow)
         {
-            Resolution res = resolutions[Mathf.Clamp(resolutionIndex, 0, resolutions.Length - 1)];
-            Screen.SetResolution(res.width, res.height, Screen.fullScreenMode);
+            Screen.SetResolution(targetRes.width, targetRes.height, mode);
+        }
+        else
+        {
+            // Borderless: force to current monitor resolution
+            Resolution desktopRes = Screen.currentResolution;
+            Screen.SetResolution(desktopRes.width, desktopRes.height, mode);
         }
 
         QualitySettings.vSyncCount = vsync ? 1 : 0;
     }
+
 
 }
