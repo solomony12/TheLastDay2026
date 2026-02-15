@@ -8,7 +8,19 @@ public class ZombieAI : MonoBehaviour
     [SerializeField] private Transform target;
 
     private float chaseRadius = 8.0f;
-    public float viewAngle = 60f;
+    private float viewAngle = 60f;
+
+    private readonly float agentSpeed = 1.5f;
+
+    private float attackRadius = 1f;
+    private readonly float attackCooldown = 2.0f;
+    private float attackTimer = 0f;
+
+    private Vector3 lastKnownTargetPosition;
+    private bool goingToLastKnownPosition = false;
+    private readonly float followWaitCooldown = 3.0f;
+    private float followTimer;
+    private bool waitingAtLastKnownPosition = false;
 
     public bool targetSpotted = false;
 
@@ -27,27 +39,30 @@ public class ZombieAI : MonoBehaviour
 
     Coroutine idleCoroutine;
 
+    private bool zombieCured = false;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         target = GameObject.FindWithTag(Constants.playerTag).GetComponent<Transform>();
         InitializeAgentInfo();
-        idleCoroutine = StartCoroutine(IdleMovement());
+        followTimer = followWaitCooldown;
     }
 
     private void Update()
     {
-        if (SettingsMenuUI.SettingsIsOpen)
+        if (SettingsMenuUI.SettingsIsOpen || zombieCured)
         {
             return;
         }
 
         MoveToTarget();
+        //AttackTarget();
     }
 
     private void InitializeAgentInfo()
     {
-        agent.speed = 1.0f;
+        agent.speed = agentSpeed;
         agent.acceleration = 1.0f;
         agent.stoppingDistance = 0.1f;
 
@@ -65,33 +80,93 @@ public class ZombieAI : MonoBehaviour
         {
             // Check line-of-sight
             Ray ray = new Ray(transform.position + Vector3.up, direction.normalized);
-            if (Physics.Raycast(ray, out RaycastHit hit, chaseRadius))
+            // Check if within field of view
+            float angleToTarget = Vector3.Angle(transform.forward, direction);
+
+            if (targetSpotted ||
+                (Physics.Raycast(ray, out RaycastHit hit, chaseRadius)
+                && hit.transform.root == target
+                && angleToTarget <= viewAngle / 2)) // already locked on or remains in view
             {
-                if (hit.transform == target)
-                {
-                    // Check if within field of view
-                    float angleToTarget = Vector3.Angle(transform.forward, direction);
-                    if (targetSpotted || angleToTarget <= viewAngle / 2)
-                    {
-                        if (idleCoroutine != null)
-                        {
-                            StopCoroutine(idleCoroutine);
-                            idleCoroutine = null;
-                        }
-                        targetSpotted = true;
-                        agent.isStopped = false;
-                        agent.SetDestination(target.position);
-                        return;
-                    }
-                }
+                Debug.Log("chase");
+                StopIdle();
+                targetSpotted = true;
+                agent.isStopped = false;
+                goingToLastKnownPosition = false;
+                lastKnownTargetPosition = target.position;
+                agent.destination = lastKnownTargetPosition;
+
+                followTimer = followWaitCooldown;
+                return;
             }
         }
 
         targetSpotted = false;
 
-        if (idleCoroutine == null)
+        // If it just lost sight, go to last known position
+        if (!goingToLastKnownPosition &&
+            !waitingAtLastKnownPosition &&
+            idleCoroutine == null)
         {
-            idleCoroutine = StartCoroutine(IdleMovement());
+            goingToLastKnownPosition = true;
+            agent.isStopped = false;
+            agent.destination = lastKnownTargetPosition;
+        }
+
+        // Arrived at last known position
+        if (goingToLastKnownPosition &&
+            !agent.pathPending &&
+            agent.remainingDistance <= agent.stoppingDistance)
+        {
+            goingToLastKnownPosition = false;
+            waitingAtLastKnownPosition = true;
+            agent.isStopped = true;
+        }
+
+        // Waiting at last known position before idling
+        if (waitingAtLastKnownPosition)
+        {
+            followTimer -= Time.deltaTime;
+
+            if (followTimer <= 0f)
+            {
+                waitingAtLastKnownPosition = false;
+                followTimer = followWaitCooldown;
+
+                if (idleCoroutine == null)
+                {
+                    idleCoroutine = StartCoroutine(IdleMovement());
+                }
+            }
+        }
+    }
+
+    private void StopIdle()
+    {
+        if (idleCoroutine != null)
+        {
+            StopCoroutine(idleCoroutine);
+            idleCoroutine = null;
+        }
+
+        isIdling = false;
+        agent.isStopped = false;
+        agent.speed = agentSpeed; // restore chase speed
+    }
+
+    private void AttackTarget()
+    {
+        if (attackTimer > 0f)
+        {
+            attackTimer -= Time.deltaTime;
+        }
+
+        Vector3 direction = target.position - transform.position;
+        float distance = direction.magnitude;
+        if (targetSpotted && distance <= attackRadius && attackTimer <= 0)
+        {
+            CureSystem.Instance.InfectPlayer();
+            attackTimer = attackCooldown;
         }
     }
 
@@ -156,6 +231,12 @@ public class ZombieAI : MonoBehaviour
     public void ZombieCured()
     {
         // cured zombie doesn't attack or move
+        zombieCured = true;
+        agent.isStopped = true;
+        gameObject.tag = Constants.untaggedTag;
+
+        Destroy(agent); // remove NavMeshAgent
+        Destroy(this); // remove the ZombieAI script
     }
 
     private void OnDrawGizmosSelected()
