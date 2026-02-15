@@ -82,6 +82,7 @@ public class ShootCure : MonoBehaviour
                     {
                         if (cureSystem.GetAmountOfCuresLeft() > 0)
                         {
+                            // TODO: Play SFX
                             cureSystem.DecrementCure();
                             cureSystem.ZombieCured(zombieName); // cure system
                             hit.collider.gameObject.GetComponent<ZombieAI>().ZombieCured(); // zombie ai

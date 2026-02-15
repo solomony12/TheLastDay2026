@@ -72,11 +72,11 @@ public class SurvivalCredits : MonoBehaviour
         }
     }
 
-    public string GetNextEndingCharacter()
+    /*public string GetNextEndingCharacter()
     {
         IEnumerator enumerator = nameToConclusionDict.GetEnumerator();
         yield return enumerator.MoveNext;
-    }
+    }*/
 }
 
 public class SurviveZombie

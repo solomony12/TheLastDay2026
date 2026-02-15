@@ -7,7 +7,7 @@ public class CureSystem : MonoBehaviour
 {
     public static CureSystem Instance;
 
-    private readonly int maxCures = 10;
+    private readonly int maxCures = 5;
 
     private int cureAmounts;
 
@@ -95,6 +95,23 @@ public class CureSystem : MonoBehaviour
         {
             // Turned into a zombie
         }
+    }
+
+    public string CurePlayer()
+    {
+        if (!isPlayerInfected)
+            return "You're not currently infected.";
+
+        if (cureAmounts <= 0)
+            return "You're out of cures.";
+
+        DecrementCure();
+
+        currentHealthStatus = HealthStatus.Healthy;
+        isPlayerInfected = false;
+        UpdateHealth(currentHealthStatus);
+
+        return "Cured used on yourself.";
     }
 
     public void ZombieCured(string name)

@@ -20,6 +20,7 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] private string interact = "Interact";
     [SerializeField] private string escape = "Escape";
     [SerializeField] private string shoot = "Shoot";
+    [SerializeField] private string selfCure = "SelfCure";
 
     private InputAction moveAction;
     private InputAction lookAction;
@@ -29,6 +30,7 @@ public class PlayerInputHandler : MonoBehaviour
     private InputAction interactAction;
     private InputAction escapeAction;
     private InputAction shootAction;
+    private InputAction selfCureAction;
 
     public Vector2 MoveInput { get; private set; }
     public Vector2 LookInput { get; private set; }
@@ -39,6 +41,7 @@ public class PlayerInputHandler : MonoBehaviour
     public bool InteractTriggered { get; private set; }
     public bool EscapeTriggered { get; private set; }
     public bool ShootTriggered { get; private set; }
+    public bool SelfCureTriggered { get; private set; }
 
     public static PlayerInputHandler Instance { get; private set; }
 
@@ -61,6 +64,7 @@ public class PlayerInputHandler : MonoBehaviour
         interactAction = playerControls.FindActionMap(actionMapName).FindAction(interact);
         escapeAction = playerControls.FindActionMap(actionMapName).FindAction(escape);
         shootAction = playerControls.FindActionMap(actionMapName).FindAction(shoot);
+        selfCureAction = playerControls.FindActionMap(actionMapName).FindAction(selfCure);
         RegisterInputActions();
     }
 
@@ -91,6 +95,9 @@ public class PlayerInputHandler : MonoBehaviour
 
         shootAction.performed += context => ShootTriggered = true;
         shootAction.canceled += context => ShootTriggered = false;
+
+        selfCureAction.performed += context => SelfCureTriggered = true;
+        selfCureAction.canceled += context => SelfCureTriggered = false;
     }
 
     private void OnEnable()
@@ -103,6 +110,7 @@ public class PlayerInputHandler : MonoBehaviour
         interactAction.Enable();
         escapeAction.Enable();
         shootAction.Enable();
+        selfCureAction.Enable();
     }
 
     private void OnDisable()
@@ -115,5 +123,6 @@ public class PlayerInputHandler : MonoBehaviour
         interactAction.Disable();
         escapeAction.Disable();
         shootAction.Disable();
+        selfCureAction.Disable();
     }
 }
