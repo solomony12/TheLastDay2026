@@ -22,6 +22,9 @@ public class ZombieAI : MonoBehaviour
     private Vector3 idleCenter;
     private bool isIdling = false;
 
+    private Vector3 storedVelocity;
+    private float storedAcceleration;
+
     Coroutine idleCoroutine;
 
     void Start()
@@ -33,6 +36,11 @@ public class ZombieAI : MonoBehaviour
 
     private void Update()
     {
+        if (SettingsMenuUI.SettingsIsOpen)
+        {
+            return;
+        }
+
         MoveToTarget();
     }
 
@@ -123,6 +131,25 @@ public class ZombieAI : MonoBehaviour
                 yield return null;
             }
         }
+    }
+
+    public void PauseZombie()
+    {
+        agent.isStopped = true;
+
+        storedAcceleration = agent.acceleration;
+        storedVelocity = agent.velocity;
+
+        agent.velocity = Vector3.zero;
+        agent.acceleration = 0;
+    }
+
+    public void ResumeZombie()
+    {
+        agent.isStopped = false;
+
+        agent.velocity = storedVelocity;
+        agent.acceleration = storedAcceleration;
     }
 
     public void ZombieCured()

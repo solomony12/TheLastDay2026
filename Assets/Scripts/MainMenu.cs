@@ -4,10 +4,6 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    [Header("Scene Names")]
-    [SerializeField] private const string playSceneName = "1_IntroScene";
-    [SerializeField] private const string tutorialSceneName = "TutorialVideo";
-    [SerializeField] private const string settingsSceneName = "Settings";
 
     public Button playButton;
 
@@ -21,12 +17,12 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        SceneTransition.Instance.StartTransition(playSceneName);
+        SceneTransition.Instance.StartTransition(Constants.mainSceneString);
     }
 
     public void Tutorial()
     {
-        SceneManager.LoadScene(tutorialSceneName, LoadSceneMode.Additive);
+        SceneManager.LoadScene(Constants.tutorialSceneName, LoadSceneMode.Additive);
         tutorialPlayed = true;
         playButton.interactable = tutorialPlayed;
     }
@@ -34,7 +30,7 @@ public class MainMenu : MonoBehaviour
     public void Settings()
     {
         SettingsMenuUI.SettingsIsOpen = true;
-        SceneManager.LoadScene(settingsSceneName, LoadSceneMode.Additive);
+        SceneManager.LoadScene(Constants.settingsSceneString, LoadSceneMode.Additive);
     }
 
     public void Credits()

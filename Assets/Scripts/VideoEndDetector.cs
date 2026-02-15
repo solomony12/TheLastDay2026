@@ -26,6 +26,6 @@ public class VideoEndDetector : MonoBehaviour
         AudioClip mainMusic = Resources.Load<AudioClip>("Music/main2");
         AudioManager.Instance.PlayMusic(mainMusic, true);
 
-        SceneTransition.Instance.StartTransitionUnload(Constants.videoSceneString, Constants.settingsFadeTime);
+        SceneTransition.Instance.StartTransitionUnload(Constants.tutorialSceneName, Constants.settingsFadeTime);
     }
 }

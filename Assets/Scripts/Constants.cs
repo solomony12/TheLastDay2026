@@ -5,7 +5,7 @@ public class Constants : MonoBehaviour
     [Header("Scene Names")]
     public static string mainMenuSceneString = "MainMenu";
     public static string settingsSceneString = "Settings";
-    public static string videoSceneString = "TutorialVideo";
+    public static string tutorialSceneName = "TutorialVideo";
     public static string creditsSceneString = "CreditsPage";
     public static string mainSceneString = "SampleScene";
 
