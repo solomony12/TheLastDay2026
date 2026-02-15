@@ -12,9 +12,11 @@ public class ZombieAI : MonoBehaviour
 
     private readonly float agentSpeed = 1.5f;
 
-    private float attackRadius = 1f;
+    private float attackRadius = 2.0f;
     private readonly float attackCooldown = 2.0f;
     private float attackTimer = 0f;
+    private bool isAttacking = false;
+    [SerializeField] private float attackDuration = 3.0f;
 
     private Vector3 lastKnownTargetPosition;
     private bool goingToLastKnownPosition = false;
@@ -57,14 +59,14 @@ public class ZombieAI : MonoBehaviour
         }
 
         MoveToTarget();
-        //AttackTarget();
+        AttackTarget();
     }
 
     private void InitializeAgentInfo()
     {
         agent.speed = agentSpeed;
         agent.acceleration = 1.0f;
-        agent.stoppingDistance = 0.1f;
+        agent.stoppingDistance = attackRadius;
 
         idleCenter = transform.position;
     }
@@ -88,7 +90,7 @@ public class ZombieAI : MonoBehaviour
                 && hit.transform.root == target
                 && angleToTarget <= viewAngle / 2)) // already locked on or remains in view
             {
-                Debug.Log("chase");
+                //Debug.Log("Chase");
                 StopIdle();
                 targetSpotted = true;
                 agent.isStopped = false;
@@ -157,18 +159,46 @@ public class ZombieAI : MonoBehaviour
     private void AttackTarget()
     {
         if (attackTimer > 0f)
-        {
             attackTimer -= Time.deltaTime;
-        }
+
+        if (isAttacking)
+            return;
 
         Vector3 direction = target.position - transform.position;
         float distance = direction.magnitude;
-        if (targetSpotted && distance <= attackRadius && attackTimer <= 0)
+
+        if (targetSpotted && distance <= attackRadius && attackTimer <= 0f)
         {
-            CureSystem.Instance.InfectPlayer();
-            attackTimer = attackCooldown;
+            StartCoroutine(AttackRoutine());
         }
     }
+
+    private IEnumerator AttackRoutine()
+    {
+        Debug.Log("Attack");
+        isAttacking = true;
+        attackTimer = attackCooldown;
+
+        // Stop movement
+        agent.isStopped = true;
+        agent.velocity = Vector3.zero;
+
+        // Face target while attacking
+        Vector3 lookDir = (target.position - transform.position).normalized;
+        lookDir.y = 0;
+        transform.rotation = Quaternion.LookRotation(lookDir);
+
+        // Apply damage
+        CureSystem.Instance.InfectPlayer();
+
+        // Wait for attack animation duration
+        yield return new WaitForSeconds(attackDuration);
+
+        // Resume movement
+        agent.isStopped = false;
+        isAttacking = false;
+    }
+
 
     private IEnumerator IdleMovement()
     {
@@ -248,6 +278,11 @@ public class ZombieAI : MonoBehaviour
         Vector3 forwardLine = transform.position + transform.forward * chaseRadius;
         Gizmos.color = Color.green;
         Gizmos.DrawLine(transform.position, forwardLine);
+
+        // Draw attack line
+        Vector3 attackLine = transform.position + transform.forward * attackRadius;
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, attackLine);
 
         // Draw left and right field-of-view lines
         float halfAngle = viewAngle / 2;
