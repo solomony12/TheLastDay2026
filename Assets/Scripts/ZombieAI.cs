@@ -97,6 +97,7 @@ public class ZombieAI : MonoBehaviour
                 goingToLastKnownPosition = false;
                 lastKnownTargetPosition = target.position;
                 agent.destination = lastKnownTargetPosition;
+                // TODO: Moving animation
 
                 followTimer = followWaitCooldown;
                 return;
@@ -113,6 +114,7 @@ public class ZombieAI : MonoBehaviour
             goingToLastKnownPosition = true;
             agent.isStopped = false;
             agent.destination = lastKnownTargetPosition;
+            // TODO: Moving animation
         }
 
         // Arrived at last known position
@@ -123,6 +125,7 @@ public class ZombieAI : MonoBehaviour
             goingToLastKnownPosition = false;
             waitingAtLastKnownPosition = true;
             agent.isStopped = true;
+            // TODO: Idle animation
         }
 
         // Waiting at last known position before idling
@@ -190,9 +193,12 @@ public class ZombieAI : MonoBehaviour
 
         // Apply damage
         CureSystem.Instance.InfectPlayer();
+        // TODO: Attack animation
 
         // Wait for attack animation duration
         yield return new WaitForSeconds(attackDuration);
+
+        // TODO: Moving animation
 
         // Resume movement
         agent.isStopped = false;
@@ -217,6 +223,7 @@ public class ZombieAI : MonoBehaviour
                     agent.SetDestination(hit.position);
                     agent.isStopped = false;
                     isIdling = true;
+                    // TODO: Moving animation
                 }
             }
 
@@ -227,6 +234,7 @@ public class ZombieAI : MonoBehaviour
                 agent.isStopped = true;
                 yield return new WaitForSeconds(lookAroundTime);
                 isIdling = false;
+                // TODO: Idle animation
 
                 // Wait a random time before next wander
                 float wait = Random.Range(waitTimeMin, waitTimeMax);
