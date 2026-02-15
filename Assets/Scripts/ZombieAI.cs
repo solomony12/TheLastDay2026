@@ -30,6 +30,7 @@ public class ZombieAI : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        target = GameObject.FindWithTag(Constants.playerTag).GetComponent<Transform>();
         InitializeAgentInfo();
         idleCoroutine = StartCoroutine(IdleMovement());
     }

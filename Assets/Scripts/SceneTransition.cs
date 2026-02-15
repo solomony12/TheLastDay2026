@@ -112,4 +112,35 @@ public class SceneTransition : MonoBehaviour
         fadeImage.color = new Color(0, 0, 0, endAlpha);
     }
 
+    public void StartGameTransition(string sceneName, LoadSceneMode sceneMode = LoadSceneMode.Single, float fadeDuration = 1f)
+    {
+        StartCoroutine(FadeAndLoadStartGame(sceneName, sceneMode, fadeDuration));
+    }
+
+    private IEnumerator FadeAndLoadStartGame(string sceneName, LoadSceneMode sceneMode, float fadeDuration)
+    {
+        // Block clicks
+        fadeCanvasGroup.blocksRaycasts = true;
+        IsTransitioning = true;
+        PlayerController.DisablePlayerControl();
+
+        HoverCaptions.Instance.HideCaptions();
+        Captions.Instance.HideCaptions(0);
+
+        // Fade in
+        yield return StartCoroutine(Fade(0f, 1f, fadeDuration));
+
+        // Load the new scene
+        yield return SceneManager.LoadSceneAsync(sceneName, sceneMode);
+        PlayerController.DisablePlayerControl();
+
+        // Fade out
+        yield return StartCoroutine(Fade(1f, 0f, fadeDuration));
+
+        // Allow clicks again
+        fadeCanvasGroup.blocksRaycasts = false;
+        IsTransitioning = false;
+        PlayerController.EnablePlayerControl();
+    }
+
 }

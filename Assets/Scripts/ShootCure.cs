@@ -64,7 +64,7 @@ public class ShootCure : MonoBehaviour
         if (Physics.Raycast(ray, out hit, maxPlayerObjectDistance))
         {
             // Zombie
-            if (hit.collider.CompareTag("Zombie"))
+            if (hit.collider.CompareTag(Constants.zombieTag))
             {
                 float dist = Vector3.Distance(player.transform.position, hit.collider.transform.position);
 

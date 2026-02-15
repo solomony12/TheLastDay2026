@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        SceneTransition.Instance.StartTransition(Constants.mainSceneString);
+        SceneTransition.Instance.StartGameTransition(Constants.mainSceneString);
     }
 
     public void Tutorial()
