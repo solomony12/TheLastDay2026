@@ -159,41 +159,53 @@ public class GameSettings : MonoBehaviour
 
     public void ApplyDisplaySettings()
     {
-        if (resolutions == null || resolutions.Length == 0)
+        try
         {
-            resolutions = Screen.resolutions
-                .Where(r => IsSameAspectRatio(r, 16, 9))
-                .ToArray();
+            if (resolutions == null || resolutions.Length == 0)
+            {
+                resolutions = Screen.resolutions
+                    .Where(r => IsSameAspectRatio(r, 16, 9))
+                    .ToArray();
+            }
+
+            // Clamp index
+            resolutionIndex = Mathf.Clamp(resolutionIndex, 0, resolutions.Length - 1);
+            Resolution targetRes = resolutions[resolutionIndex];
+
+            // Fullscreen mode
+            FullScreenMode mode = fullscreenModeIndex switch
+            {
+                0 => FullScreenMode.Windowed,
+                1 => FullScreenMode.FullScreenWindow, // borderless
+                2 => FullScreenMode.ExclusiveFullScreen,
+                _ => FullScreenMode.FullScreenWindow
+            };
+
+            Screen.fullScreenMode = mode;
+
+            // Only set resolution in windowed or exclusive fullscreen
+            if (mode != FullScreenMode.FullScreenWindow)
+            {
+                Screen.SetResolution(targetRes.width, targetRes.height, mode);
+            }
+            else
+            {
+                // Borderless: force to current monitor resolution
+                Resolution desktopRes = Screen.currentResolution;
+                Screen.SetResolution(desktopRes.width, desktopRes.height, mode);
+            }
+
+            QualitySettings.vSyncCount = vsync ? 1 : 0;
         }
-
-        // Clamp index
-        resolutionIndex = Mathf.Clamp(resolutionIndex, 0, resolutions.Length - 1);
-        Resolution targetRes = resolutions[resolutionIndex];
-
-        // Fullscreen mode
-        FullScreenMode mode = fullscreenModeIndex switch
+        catch
         {
-            0 => FullScreenMode.Windowed,
-            1 => FullScreenMode.FullScreenWindow, // borderless
-            2 => FullScreenMode.ExclusiveFullScreen,
-            _ => FullScreenMode.FullScreenWindow
-        };
-
-        Screen.fullScreenMode = mode;
-
-        // Only set resolution in windowed or exclusive fullscreen
-        if (mode != FullScreenMode.FullScreenWindow)
-        {
-            Screen.SetResolution(targetRes.width, targetRes.height, mode);
+            // Fallback to Unity defaults
+            Screen.fullScreenMode = FullScreenMode.Windowed;
+            Resolution defaultRes = Screen.currentResolution;
+            Screen.SetResolution(defaultRes.width, defaultRes.height, FullScreenMode.Windowed);
+            QualitySettings.vSyncCount = 1;
+            Debug.LogWarning("Failed to apply custom display settings. Reverted to Unity defaults.");
         }
-        else
-        {
-            // Borderless: force to current monitor resolution
-            Resolution desktopRes = Screen.currentResolution;
-            Screen.SetResolution(desktopRes.width, desktopRes.height, mode);
-        }
-
-        QualitySettings.vSyncCount = vsync ? 1 : 0;
     }
 
 

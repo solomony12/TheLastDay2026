@@ -16,7 +16,7 @@ public class Clipboard : MonoBehaviour
 
     private string[] names;
 
-    private Dictionary<string, string> descriptionDict
+    /*private Dictionary<string, string> descriptionDict
         = new Dictionary<string, string>
         {
             { "TEST_ZOMBIE", "- Tall\n- Slow moving\n- Blank expression\n- Torn clothes\n- Groans constantly\n- One shoe missing\n- Cloudy eyes\n- Reaches out aimlessly\n- Smells of decay\n- Used to be someone" },
@@ -40,7 +40,32 @@ public class Clipboard : MonoBehaviour
             { "Prisoner", "- Serving time for armed robbery\n- Claims he’s innocent\n- Covered in tattoos\n- Grew up in poverty\n- Quick temper\n- Protective of younger inmates\n- Reads philosophy books\n- Distrusts authority\n- Strong build\n- Says he wants a second chance" },
 
             { "Punk", "- Loud and rebellious\n- Plays in a garage band\n- Bright dyed hair\n- Piercings and ripped clothes\n- Questions everything\n- Sleeps on friends’ couches\n- Writes angry lyrics\n- Laughs at danger\n- Hates being judged\n- Secretly cares deeply" }
-        };
+        };*/
+    private Dictionary<string, string> descriptionDict
+    = new Dictionary<string, string>
+    {
+        { "Baker", "- Makes bread every morning\n- Floofy white hat\n- Very talented public speaker\n- Narcissistic\n- Loves bread (maybe a little too much)\n- Converted community to a bread-focused cult\n- Agricultural production flourishes\n- Survivors devote most of their time to bread\n- Hands rough from work\n- Knows everyone in town" },
+
+        { "Boy", "- 8 years old\n- Loves drawing superheroes\n- Afraid of the dark\n- Missing his front tooth\n- Wears a red backpack\n- Cries when overwhelmed\n- Wants to be a firefighter\n- Trusts adults easily\n- Scraped knees\n- Carries a stuffed animal" },
+
+        { "BusinessMan", "- Samuel\n- Quite, brooding\n- Short hair and a tie\n- Wealthy, generous\n- Good at managing people\n- Doesn’t handle stress well\n- Tremendous initial productivity under leadership\n- Later has a breakdown and is moved to psychiatric ward\n- Community productivity grinds to a halt\n- Observant and meticulous" },
+
+        { "Cat", "- Snowball the Cat\n- Cute, adorable\n- Escaped to Argentina after committing various war crimes\n- Turns survivors into a fascist-style dictatorship\n- Supreme leader of the colony\n- Public punishment for questioning her\n- Feared and adored\n- Independent\n- Purrs loudly\n- Rubs against survivors" },
+
+        { "MilitarySoldier", "- John\n- Stoic, harsh, silent\n- Enforces order strictly\n- Shelter always short-staffed\n- Tasks pile up without him\n- Efficient but harsh\n- Protective of survivors\n- Trained to survive\n- Physically fit\n- Scar across cheek" },
+
+        { "Nun", "- Lauren\n- Kind, generous, thoughtful\n- Runs local charity for poor orphans\n- New to town\n- Designated herself to collect tithe offerings\n- Less trustworthy than she seems\n- Milks survivors dry for donations\n- Skipped town overnight\n- Soft-spoken\n- Wears simple habit" },
+
+        { "Nurse", "- Works long hospital shifts\n- Calm under pressure\n- Caring toward patients\n- Drinks too much coffee\n- Missed family holidays\n- Knows how to triage injuries\n- Gentle voice\n- Wears worn-out sneakers\n- Holds hands during final moments\n- Exhausted but keeps going" },
+
+        { "OldMan", "- Randy\n- Old civilian man\n- Laments loss of wife to the hordes\n- Withdrawn and quiet\n- Everyday more isolated\n- Eventually decides to join his wife\n- Hard of hearing\n- Remembers another time\n- Keeps faded photographs\n- Lives alone" },
+
+        { "Prisoner", "- Serving time for armed robbery\n- Claims he’s innocent\n- Covered in tattoos\n- Grew up in poverty\n- Quick temper\n- Protective of younger inmates\n- Reads philosophy books\n- Distrusts authority\n- Strong build\n- Says he wants a second chance" },
+
+        { "Punk", "- Loud and rebellious\n- Plays in a garage band\n- Bright dyed hair\n- Piercings and ripped clothes\n- Questions everything\n- Sleeps on friends’ couches\n- Writes angry lyrics\n- Laughs at danger\n- Hates being judged\n- Secretly cares deeply" },
+
+        { "Girl", "- Young girl\n- Wears a pink dress\n- Innocent and curious\n- Carries a small stuffed animal\n- Wide, bright eyes\n- Tends to wander\n- Easily frightened by loud noises\n- Laughs freely\n- Loves drawing and playing\n- Trusts adults easily\n- Often skips instead of walking" }
+    };
 
     private TMP_Text characterName;
     private TMP_Text description;

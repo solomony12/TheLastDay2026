@@ -53,7 +53,7 @@ public class SurvivalCredits : MonoBehaviour
                 "CURED: Former members of her parish came forward with stories of coercion and emotional manipulation disguised as spiritual guidance. Donations meant for charity had quietly funded personal comforts. After the cure, she insisted the outbreak was divine punishment and showed little empathy for the grieving." },
 
             { new SurviveZombie("Nun", false),
-                "UNCURED:She operated a soup kitchen that never turned anyone away and routinely gave up her own meals so others could eat. She visited hospitals daily and organized clothing drives every winter. Survivors recall her staying behind to guide children out when panic erupted." },
+                "UNCURED: She operated a soup kitchen that never turned anyone away and routinely gave up her own meals so others could eat. She visited hospitals daily and organized clothing drives every winter. Survivors recall her staying behind to guide children out when panic erupted." },
 
             { new SurviveZombie("Nurse", true),
                 "CURED: Hospital staff later disclosed repeated complaints about negligence and diverted medication supplies. She had been under quiet review before the outbreak began. After recovery, she demanded authority in medical camps despite past mistakes that had already cost lives." },
@@ -77,8 +77,71 @@ public class SurvivalCredits : MonoBehaviour
                 "CURED: Former classmates described a pattern of vandalism, theft, and organizing destructive protests that left small businesses damaged. After being cured, they openly mocked relief efforts and encouraged others to hoard supplies rather than cooperate." },
 
             { new SurviveZombie("Punk", false),
-                "UNCURED: Despite the loud exterior, they organized small benefit concerts for struggling venues and quietly helped friends cover rent. Teachers once praised their writing for its empathy toward outsiders and the overlooked." }
+                "UNCURED: Despite the loud exterior, they organized small benefit concerts for struggling venues and quietly helped friends cover rent. Teachers once praised their writing for its empathy toward outsiders and the overlooked." },
+
+            { new SurviveZombie("Girl", true),
+                "CURED: Once the cure took effect, the little girl’s curiosity and innocence twisted into mischief. She began sneaking into supply caches and hoarding toys and treats for herself, showing little concern for other survivors. Her playful nature now carried a streak of cunning and selfishness." },
+
+            { new SurviveZombie("Girl", false),
+                "UNCURED: Even as a zombie, she retained glimpses of her sweet, curious nature. She wandered the settlement with wide-eyed wonder, offering small toys she found to other survivors and laughing softly, reminding everyone of the child she once was." }
         };
+    /*private readonly Dictionary<SurviveZombie, string> zombiesEndingTextDict
+    = new Dictionary<SurviveZombie, string>()
+    {
+        { new SurviveZombie("Baker", true),
+            "CURED: Julia’s bread-making skills and public charisma have now overtaken the community. The survivors devote most of their time to baking and worshiping bread. Agricultural production flourishes, but the obsession distracts from other critical survival tasks." },
+
+        { new SurviveZombie("Baker", false),
+            "UNCURED: Without Julia’s guidance, the community struggles to organize itself. While she remains focused on bread, other needs are neglected, leaving survivors to fend for themselves with inconsistent resources." },
+
+        { new SurviveZombie("MilitarySoldier", true),
+            "CURED: John continues to enforce order with stoicism and strict rules. His leadership keeps the shelter functioning, though many survivors find his approach harsh. Tasks are completed efficiently, but morale suffers." },
+
+        { new SurviveZombie("MilitarySoldier", false),
+            "UNCURED: The shelter is short-staffed and unorganized. Without John’s discipline, tasks pile up, and the survivors struggle to maintain basic operations. Productivity declines as chaos spreads." },
+
+        { new SurviveZombie("Nun", true),
+            "CURED: Lauren reestablishes her mission quickly, using survivors’ resources for her own benefit. Donations and supplies are funneled into her schemes, leaving many feeling betrayed and distrustful of her leadership." },
+
+        { new SurviveZombie("Nun", false),
+            "UNCURED: Lauren continues her charitable work, running a local mission and helping orphans. She gives up her own needs for others and stays behind during crises, earning the trust and admiration of the survivors." },
+
+        { new SurviveZombie("Wife", true),
+            "CURED: Emily recovers physically, but her relationship with you collapses. Soon after the cure, she leaves you for another, leaving you isolated and demoralized despite her health being restored." },
+
+        { new SurviveZombie("Wife", false),
+            "UNCURED: Emily survives as a zombie, and while she is no longer herself, you mourn the person she once was. Her absence and transformation weigh heavily on your conscience." },
+
+        { new SurviveZombie("Cat", true),
+            "CURED: Snowball escapes to Argentina and quickly establishes dominance over the survivors, turning them into a fascist-style hierarchy with herself at the top. Questioning her authority results in public punishment, making her both feared and adored." },
+
+        { new SurviveZombie("Cat", false),
+            "UNCURED: Snowball remains a domestic companion, providing comfort to survivors. She is mischievous but harmless, and her presence boosts morale around the shelter." },
+
+        { new SurviveZombie("Mechanic", true),
+            "CURED: Gerald successfully upgrades the factory for faster cure production, but safety protocols are ignored. A catastrophic fire kills six child laborers and halts production for months, leaving the community in disarray." },
+
+        { new SurviveZombie("Mechanic", false),
+            "UNCURED: Gerald continues to make small repairs and improvements but lacks the skill to fully optimize production. The factory runs slowly, and minor accidents occur, though no major tragedies happen." },
+
+        { new SurviveZombie("SanitationWorker", true),
+            "CURED: Lucy works tirelessly to overhaul the settlement’s sanitation system. Her dedication prevents disease outbreaks and improves hygiene standards, though the effort takes a heavy toll on her own health." },
+
+        { new SurviveZombie("SanitationWorker", false),
+            "UNCURED: Lucy succumbs to cholera due to the outbreak, and the settlement lacks sufficient medical supplies to save her. Her sacrifice is remembered, but the community suffers without her guidance." },
+
+        { new SurviveZombie("Retired", true),
+            "CURED: Emily’s body is fully restored, but her mind never fully recovers. She stares blankly out the window for hours, unresponsive, leaving others to wonder if her life is now more of a suffering than a blessing." },
+
+        { new SurviveZombie("Retired", false),
+            "UNCURED: Emily remains a zombie, but her cheerful nature is lost. Survivors mourn her absence, recognizing the positive impact she had on the community before turning." },
+
+        { new SurviveZombie("Rockstar", true),
+            "CURED: Jeanete becomes withdrawn after learning of her girlfriend Lizzie’s death. Though physically cured, she isolates herself from survivors, mourning quietly until one day she ultimately succumbs to grief and joins Lizzie in death." },
+
+        { new SurviveZombie("Rockstar", false),
+            "UNCURED: Jeanete continues performing and leading her band, keeping the community entertained and connected despite the outbreak. Her presence inspires hope and unity among survivors." }
+    };*/
     private Dictionary<string, string> nameToConclusionDict;
 
     [Header("Unity Canvas Objects")]
@@ -117,6 +180,15 @@ public class SurvivalCredits : MonoBehaviour
     private void Start()
     {
         AudioManager.Instance.PlaySFX(gunshots);
+
+        if (CureSystem.Instance.currentHealthStatus != CureSystem.HealthStatus.Zombie)
+        {
+            characterEnding.text = "After all the survivors were gathered, the remaining zombies were gunned down without a second thought in front of you.\r\nThe world soon returned to normal but you'll never erase those memories from your cure delivery days as a child.\r\nYou decided to search up each person to see their past or how they were doing.";
+        }
+        else
+        {
+            characterEnding.text = "Your life ended too early as rather than a savior, you became one of them.\r\nWith the remaining cures lost on you, more zombies were gunned down than needed to had you remained alive.\r\nThose you did save... well, let's see what happened to them all.";
+        }
     }
 
     public void GetCanvasObjects()
@@ -178,6 +250,17 @@ public class SurvivalCredits : MonoBehaviour
             }
         }
 
+        // Add the player as the last character
+        string playerEnding = null;
+        if (CureSystem.Instance.currentHealthStatus != CureSystem.HealthStatus.Healthy && CureSystem.Instance.currentHealthStatus != CureSystem.HealthStatus.Zombie)
+        {
+            playerEnding = "As for you… well, you became a zombie.\r\nBy the time the infection took hold, it was so late that neither you nor anyone else realized what had happened.\r\nBefore long, the transformation was complete, and you had unleashed another zombie apocalypse.";
+        }
+        if (playerEnding != null)
+        {
+            nameToConclusionDict.Add("You (Delivery Boy)", playerEnding);
+        }
+
         // Create enumerator for later use
         _enumerator = nameToConclusionDict.GetEnumerator();
     }
@@ -220,9 +303,12 @@ public class SurvivalCredits : MonoBehaviour
         Sprite image = Resources.Load<Sprite>($"{Constants.profilePicturesPath}/{name}_Screenshot");
         if (image == null)
         {
-            Debug.LogError("Picture not found");
+            characterPicture.sprite = Resources.Load<Sprite>($"{Constants.profilePicturesPath}/Newsboy_Screenshot");
         }
-        characterPicture.sprite = image;
+        else
+        {
+            characterPicture.sprite = image;
+        }
         StartTyping(text);
     }
 
