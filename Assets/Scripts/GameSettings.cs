@@ -56,7 +56,9 @@ public class GameSettings : MonoBehaviour
         if (SceneManager.GetActiveScene().name == Constants.mainMenuSceneString)
             return;
 
-        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame && !SceneTransition.IsTransitioning)
+        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame
+            && !SceneTransition.IsTransitioning
+            && SceneManager.GetActiveScene().name != Constants.endingCharacterCreditsSceneString)
         {
             PauseResume();
             inputTimer = inputDelay;

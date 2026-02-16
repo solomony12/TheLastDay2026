@@ -17,6 +17,9 @@ public class AudioManager : MonoBehaviour
 
     private Coroutine musicFadeRoutine;
 
+    private AudioClip ambienceMusic;
+    private AudioClip endingMusic;
+
     private void Awake()
     {
         if (Instance == null)
@@ -29,6 +32,9 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        ambienceMusic = Resources.Load<AudioClip>($"{Constants.musicPath}/universfield-melancholic-soundscape-276673");
+        endingMusic = Resources.Load<AudioClip>($"{Constants.musicPath}/roman_sol-russian-folk-waltz-449594");
     }
 
     private void Update()
@@ -262,8 +268,12 @@ public class AudioManager : MonoBehaviour
             case "MainMenu":
                 SwitchMusic(Constants.mainMusic, 0.1f);
                 break;
-            case "Courtyard":
+            case "MainLevel":
                 PlayAmbient(Constants.hum);
+                PlayMusic(ambienceMusic);
+                break;
+            case "EndingCharacterCreditsScene":
+                PlayMusic(endingMusic);
                 break;
 
             default:
