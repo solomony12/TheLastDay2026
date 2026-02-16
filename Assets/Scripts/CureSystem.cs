@@ -20,6 +20,9 @@ public class CureSystem : MonoBehaviour
 
     public GameObject[] zombies;
 
+    private AudioClip selfInject;
+    private AudioClip syringeShot;
+
     public enum HealthStatus
     {
         Healthy,
@@ -46,6 +49,9 @@ public class CureSystem : MonoBehaviour
         curesText = GameObject.FindWithTag(Constants.curesTextTag).GetComponent<TMP_Text>();
         if (curesText == null)
             Debug.LogError("CuresText not found");
+
+        selfInject = Resources.Load<AudioClip>($"{Constants.sfxPath}/self_inject");
+        syringeShot = Resources.Load<AudioClip>($"{Constants.sfxPath}/air_release");
 
         GetZombies();
         UpdateCures(maxCures);
@@ -146,12 +152,14 @@ public class CureSystem : MonoBehaviour
         currentHealthStatus = HealthStatus.Healthy;
         isPlayerInfected = false;
         UpdateHealth(currentHealthStatus);
+        AudioManager.Instance.PlaySFX(selfInject);
 
         return "Cured used on yourself.";
     }
 
     public void ZombieCured(string name)
     {
+        AudioManager.Instance.PlaySFX(syringeShot);
         zombiesCuredDict[name] = true;
     }
 }

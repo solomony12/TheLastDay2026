@@ -95,6 +95,8 @@ public class SurvivalCredits : MonoBehaviour
 
     public InputAction clickAction;
 
+    private AudioClip gunshots;
+
     private void OnEnable() => clickAction.Enable();
     private void OnDisable() => clickAction.Disable();
 
@@ -108,6 +110,13 @@ public class SurvivalCredits : MonoBehaviour
 
         characterTextDoneLoading = true;
         continueText.SetActive(true);
+
+        gunshots = Resources.Load<AudioClip>($"{Constants.sfxPath}/gunshots");
+    }
+
+    private void Start()
+    {
+        AudioManager.Instance.PlaySFX(gunshots);
     }
 
     public void GetCanvasObjects()
