@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 2039a0ad0a9d05549928b70362f54902, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Wall (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5117390646883473045, guid: a3016502afd474544918bb057934e148, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5498700543252827183, guid: a3016502afd474544918bb057934e148, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.042446
@@ -203,7 +207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8844587224948511141, guid: 4a802c31218af4699a5da116ba083ffa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.019999832
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8844587224948511141, guid: 4a802c31218af4699a5da116ba083ffa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -258,6 +262,10 @@ PrefabInstance:
     - target: {fileID: 1247217077566333980, guid: 769d75a48caf7462abfc9aed7c58e2a6, type: 3}
       propertyPath: m_Name
       value: LD_Barrier (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1247217077566333980, guid: 769d75a48caf7462abfc9aed7c58e2a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1874854235499413158, guid: 769d75a48caf7462abfc9aed7c58e2a6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -377,6 +385,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_CityLayout01 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -384,9 +396,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 108924963}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 108924967}
   m_SourcePrefab: {fileID: 100100000, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
 --- !u!1 &108924962 stripped
 GameObject:
@@ -420,38 +429,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
   m_PrefabInstance: {fileID: 108924961}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &108924967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108924962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
-  m_BuildHeightMesh: 0
 --- !u!1001 &110607549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -530,6 +507,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Wall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5117390646883473045, guid: a3016502afd474544918bb057934e148, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5498700543252827183, guid: a3016502afd474544918bb057934e148, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.049217
@@ -591,6 +572,10 @@ PrefabInstance:
     - target: {fileID: 7242620761308073972, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
       propertyPath: m_Name
       value: LD_Building01 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242620761308073972, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8055010747623888206, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -664,7 +649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8844587224948511141, guid: 4a802c31218af4699a5da116ba083ffa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.019999832
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8844587224948511141, guid: 4a802c31218af4699a5da116ba083ffa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -776,6 +761,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_CityLayout01 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -783,9 +772,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 159303233}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 159303237}
   m_SourcePrefab: {fileID: 100100000, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
 --- !u!1 &159303232 stripped
 GameObject:
@@ -819,38 +805,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
   m_PrefabInstance: {fileID: 159303231}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &159303237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159303232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
-  m_BuildHeightMesh: 0
 --- !u!1001 &178483654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -862,6 +816,10 @@ PrefabInstance:
     - target: {fileID: 1247217077566333980, guid: 769d75a48caf7462abfc9aed7c58e2a6, type: 3}
       propertyPath: m_Name
       value: LD_Barrier (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1247217077566333980, guid: 769d75a48caf7462abfc9aed7c58e2a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1874854235499413158, guid: 769d75a48caf7462abfc9aed7c58e2a6, type: 3}
       propertyPath: m_LocalScale.x
@@ -933,6 +891,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Lamppost_Bent
       objectReference: {fileID: 0}
+    - target: {fileID: 8148463079496578622, guid: 31daa886544f845d8b1c26aab3e24430, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8817757056501492868, guid: 31daa886544f845d8b1c26aab3e24430, type: 3}
       propertyPath: m_LocalScale.x
       value: 100.000015
@@ -999,6 +961,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Building01 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7242620761308073972, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8055010747623888206, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.952587
@@ -1060,6 +1026,10 @@ PrefabInstance:
     - target: {fileID: 7242620761308073972, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
       propertyPath: m_Name
       value: LD_Building01 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242620761308073972, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8055010747623888206, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1162,6 +1132,10 @@ PrefabInstance:
     - target: {fileID: 8969386986308871347, guid: 584710081030b47128662b02ff983b37, type: 3}
       propertyPath: m_Name
       value: LD_Car01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969386986308871347, guid: 584710081030b47128662b02ff983b37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1278,13 +1252,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Tunnel_Short (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8211638360451828511, guid: 4a802c31218af4699a5da116ba083ffa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8844587224948511141, guid: 4a802c31218af4699a5da116ba083ffa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -77.73152
       objectReference: {fileID: 0}
     - target: {fileID: 8844587224948511141, guid: 4a802c31218af4699a5da116ba083ffa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.019999832
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8844587224948511141, guid: 4a802c31218af4699a5da116ba083ffa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1339,6 +1317,10 @@ PrefabInstance:
     - target: {fileID: 5117390646883473045, guid: a3016502afd474544918bb057934e148, type: 3}
       propertyPath: m_Name
       value: LD_Wall (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117390646883473045, guid: a3016502afd474544918bb057934e148, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5498700543252827183, guid: a3016502afd474544918bb057934e148, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1446,6 +1428,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Car02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7661189039978933577, guid: 0ead056d7b7764160a6638e90183b22f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1516,6 +1502,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Building_Corner (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8056585655830393094, guid: 6ee1f245ef2134809bee611ed90b7fba, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1537,6 +1527,10 @@ PrefabInstance:
     - target: {fileID: 5117390646883473045, guid: a3016502afd474544918bb057934e148, type: 3}
       propertyPath: m_Name
       value: LD_Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117390646883473045, guid: a3016502afd474544918bb057934e148, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5498700543252827183, guid: a3016502afd474544918bb057934e148, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1599,6 +1593,10 @@ PrefabInstance:
     - target: {fileID: 7242620761308073972, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
       propertyPath: m_Name
       value: LD_Building01 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242620761308073972, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8055010747623888206, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1718,6 +1716,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_CityLayout01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1725,9 +1727,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 373577181}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 373577185}
   m_SourcePrefab: {fileID: 100100000, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
 --- !u!1 &373577180 stripped
 GameObject:
@@ -1761,38 +1760,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
   m_PrefabInstance: {fileID: 373577179}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &373577185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 373577180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
-  m_BuildHeightMesh: 0
 --- !u!1001 &380146647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1861,6 +1828,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_CityLayout01 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1868,9 +1839,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 380146649}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 380146653}
   m_SourcePrefab: {fileID: 100100000, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
 --- !u!1 &380146648 stripped
 GameObject:
@@ -1904,38 +1872,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
   m_PrefabInstance: {fileID: 380146647}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &380146653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 380146648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
-  m_BuildHeightMesh: 0
 --- !u!1001 &388678693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1988,6 +1924,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Car02
       objectReference: {fileID: 0}
+    - target: {fileID: 7661189039978933577, guid: 0ead056d7b7764160a6638e90183b22f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2009,6 +1949,10 @@ PrefabInstance:
     - target: {fileID: 7242620761308073972, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
       propertyPath: m_Name
       value: LD_Building01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242620761308073972, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8055010747623888206, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2111,6 +2055,10 @@ PrefabInstance:
     - target: {fileID: 8056585655830393094, guid: 6ee1f245ef2134809bee611ed90b7fba, type: 3}
       propertyPath: m_Name
       value: LD_Building_Corner (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8056585655830393094, guid: 6ee1f245ef2134809bee611ed90b7fba, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2288,6 +2236,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Car01 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8969386986308871347, guid: 584710081030b47128662b02ff983b37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2455,6 +2407,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Building01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7242620761308073972, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8055010747623888206, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -96.75545
@@ -2516,6 +2472,10 @@ PrefabInstance:
     - target: {fileID: 5117390646883473045, guid: a3016502afd474544918bb057934e148, type: 3}
       propertyPath: m_Name
       value: LD_Wall (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117390646883473045, guid: a3016502afd474544918bb057934e148, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5498700543252827183, guid: a3016502afd474544918bb057934e148, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2635,6 +2595,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_CityLayout01 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2642,9 +2606,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 570002255}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 570002259}
   m_SourcePrefab: {fileID: 100100000, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
 --- !u!1 &570002254 stripped
 GameObject:
@@ -2678,38 +2639,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
   m_PrefabInstance: {fileID: 570002253}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &570002259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570002254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
-  m_BuildHeightMesh: 0
 --- !u!1 &579159708
 GameObject:
   m_ObjectHideFlags: 0
@@ -2953,6 +2882,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Car01
       objectReference: {fileID: 0}
+    - target: {fileID: 8969386986308871347, guid: 584710081030b47128662b02ff983b37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2974,6 +2907,10 @@ PrefabInstance:
     - target: {fileID: 5117390646883473045, guid: a3016502afd474544918bb057934e148, type: 3}
       propertyPath: m_Name
       value: LD_Wall (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117390646883473045, guid: a3016502afd474544918bb057934e148, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5498700543252827183, guid: a3016502afd474544918bb057934e148, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3167,6 +3104,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Car01 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8969386986308871347, guid: 584710081030b47128662b02ff983b37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3229,6 +3170,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Building_Corner (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8056585655830393094, guid: 6ee1f245ef2134809bee611ed90b7fba, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3250,6 +3195,10 @@ PrefabInstance:
     - target: {fileID: 5117390646883473045, guid: a3016502afd474544918bb057934e148, type: 3}
       propertyPath: m_Name
       value: LD_Wall (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117390646883473045, guid: a3016502afd474544918bb057934e148, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5498700543252827183, guid: a3016502afd474544918bb057934e148, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3312,6 +3261,10 @@ PrefabInstance:
     - target: {fileID: 5117390646883473045, guid: a3016502afd474544918bb057934e148, type: 3}
       propertyPath: m_Name
       value: LD_Wall (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117390646883473045, guid: a3016502afd474544918bb057934e148, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5498700543252827183, guid: a3016502afd474544918bb057934e148, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3419,6 +3372,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Lamppost (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2525016832642184784, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2900733513348459754, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.482792
@@ -3480,6 +3437,10 @@ PrefabInstance:
     - target: {fileID: 7242620761308073972, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
       propertyPath: m_Name
       value: LD_Building01 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242620761308073972, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8055010747623888206, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3583,6 +3544,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Car01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8969386986308871347, guid: 584710081030b47128662b02ff983b37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3645,6 +3610,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Building_Corner (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8056585655830393094, guid: 6ee1f245ef2134809bee611ed90b7fba, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3666,6 +3635,10 @@ PrefabInstance:
     - target: {fileID: 1247217077566333980, guid: 769d75a48caf7462abfc9aed7c58e2a6, type: 3}
       propertyPath: m_Name
       value: LD_Barrier
+      objectReference: {fileID: 0}
+    - target: {fileID: 1247217077566333980, guid: 769d75a48caf7462abfc9aed7c58e2a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1874854235499413158, guid: 769d75a48caf7462abfc9aed7c58e2a6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3729,6 +3702,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Lamppost (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2525016832642184784, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2900733513348459754, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
       propertyPath: m_LocalPosition.x
       value: -76.65766
@@ -3791,13 +3768,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Tunnel_Short (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8211638360451828511, guid: 4a802c31218af4699a5da116ba083ffa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8844587224948511141, guid: 4a802c31218af4699a5da116ba083ffa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.190954
       objectReference: {fileID: 0}
     - target: {fileID: 8844587224948511141, guid: 4a802c31218af4699a5da116ba083ffa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8844587224948511141, guid: 4a802c31218af4699a5da116ba083ffa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3852,6 +3833,10 @@ PrefabInstance:
     - target: {fileID: 2525016832642184784, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
       propertyPath: m_Name
       value: LD_Lamppost (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2525016832642184784, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2900733513348459754, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3986,6 +3971,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_CityLayout01 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3993,9 +3982,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1033941064}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1033941068}
   m_SourcePrefab: {fileID: 100100000, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
 --- !u!1 &1033941063 stripped
 GameObject:
@@ -4029,38 +4015,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
   m_PrefabInstance: {fileID: 1033941062}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1033941068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1033941063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
-  m_BuildHeightMesh: 0
 --- !u!1001 &1087634766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4121,6 +4075,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Building_Corner (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8056585655830393094, guid: 6ee1f245ef2134809bee611ed90b7fba, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4142,6 +4100,10 @@ PrefabInstance:
     - target: {fileID: 2525016832642184784, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
       propertyPath: m_Name
       value: LD_Lamppost (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2525016832642184784, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2900733513348459754, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4205,6 +4167,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Lamppost (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2525016832642184784, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2900733513348459754, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.640007
@@ -4267,6 +4233,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Wall (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5117390646883473045, guid: a3016502afd474544918bb057934e148, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5498700543252827183, guid: a3016502afd474544918bb057934e148, type: 3}
       propertyPath: m_LocalPosition.x
       value: -33.79245
@@ -4328,6 +4298,10 @@ PrefabInstance:
     - target: {fileID: 7242620761308073972, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
       propertyPath: m_Name
       value: LD_Building01 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242620761308073972, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8055010747623888206, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4431,6 +4405,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Car01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8969386986308871347, guid: 584710081030b47128662b02ff983b37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4452,6 +4430,10 @@ PrefabInstance:
     - target: {fileID: 1247217077566333980, guid: 769d75a48caf7462abfc9aed7c58e2a6, type: 3}
       propertyPath: m_Name
       value: LD_Barrier (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1247217077566333980, guid: 769d75a48caf7462abfc9aed7c58e2a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1874854235499413158, guid: 769d75a48caf7462abfc9aed7c58e2a6, type: 3}
       propertyPath: m_LocalScale.x
@@ -4522,6 +4504,10 @@ PrefabInstance:
     - target: {fileID: 2525016832642184784, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
       propertyPath: m_Name
       value: LD_Lamppost (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2525016832642184784, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2900733513348459754, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4801,6 +4787,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Building01 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 7242620761308073972, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8055010747623888206, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.297413
@@ -4862,6 +4852,10 @@ PrefabInstance:
     - target: {fileID: 5117390646883473045, guid: a3016502afd474544918bb057934e148, type: 3}
       propertyPath: m_Name
       value: LD_Wall (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117390646883473045, guid: a3016502afd474544918bb057934e148, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5498700543252827183, guid: a3016502afd474544918bb057934e148, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4991,6 +4985,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Wall (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5117390646883473045, guid: a3016502afd474544918bb057934e148, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5498700543252827183, guid: a3016502afd474544918bb057934e148, type: 3}
       propertyPath: m_LocalPosition.x
       value: -33.79245
@@ -5109,6 +5107,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_CityLayout01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5116,9 +5118,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1349445470}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1349445474}
   m_SourcePrefab: {fileID: 100100000, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
 --- !u!1 &1349445469 stripped
 GameObject:
@@ -5152,38 +5151,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
   m_PrefabInstance: {fileID: 1349445468}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1349445474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349445469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
-  m_BuildHeightMesh: 0
 --- !u!1001 &1355364437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5195,6 +5162,10 @@ PrefabInstance:
     - target: {fileID: 5117390646883473045, guid: a3016502afd474544918bb057934e148, type: 3}
       propertyPath: m_Name
       value: LD_Wall (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117390646883473045, guid: a3016502afd474544918bb057934e148, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5498700543252827183, guid: a3016502afd474544918bb057934e148, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5314,6 +5285,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_CityLayout01 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5321,9 +5296,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1359106040}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1359106044}
   m_SourcePrefab: {fileID: 100100000, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
 --- !u!1 &1359106039 stripped
 GameObject:
@@ -5357,38 +5329,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
   m_PrefabInstance: {fileID: 1359106038}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1359106044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1359106039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
-  m_BuildHeightMesh: 0
 --- !u!1001 &1439258006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5533,13 +5473,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Tunnel_Short
       objectReference: {fileID: 0}
+    - target: {fileID: 8211638360451828511, guid: 4a802c31218af4699a5da116ba083ffa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8844587224948511141, guid: 4a802c31218af4699a5da116ba083ffa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -54.481537
       objectReference: {fileID: 0}
     - target: {fileID: 8844587224948511141, guid: 4a802c31218af4699a5da116ba083ffa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.019999832
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8844587224948511141, guid: 4a802c31218af4699a5da116ba083ffa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5660,6 +5604,10 @@ PrefabInstance:
     - target: {fileID: 7242620761308073972, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
       propertyPath: m_Name
       value: LD_Building01 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242620761308073972, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8055010747623888206, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5869,6 +5817,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Building_Corner
       objectReference: {fileID: 0}
+    - target: {fileID: 8056585655830393094, guid: 6ee1f245ef2134809bee611ed90b7fba, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6046,6 +5998,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Car01 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8969386986308871347, guid: 584710081030b47128662b02ff983b37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6108,6 +6064,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Building_Corner (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8056585655830393094, guid: 6ee1f245ef2134809bee611ed90b7fba, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6132,7 +6092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 423872408897796848, guid: 3945e5178afcd484881d6a188693a6b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.020000428
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 423872408897796848, guid: 3945e5178afcd484881d6a188693a6b9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6169,6 +6129,10 @@ PrefabInstance:
     - target: {fileID: 1056715445417107530, guid: 3945e5178afcd484881d6a188693a6b9, type: 3}
       propertyPath: m_Name
       value: LD_Tunnel_Long02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1056715445417107530, guid: 3945e5178afcd484881d6a188693a6b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6272,6 +6236,10 @@ PrefabInstance:
     - target: {fileID: 7242620761308073972, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
       propertyPath: m_Name
       value: LD_Building01 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242620761308073972, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8055010747623888206, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6503,6 +6471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_CityLayout01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6510,9 +6482,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1771626501}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1771626505}
   m_SourcePrefab: {fileID: 100100000, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
 --- !u!1 &1771626500 stripped
 GameObject:
@@ -6546,38 +6515,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
   m_PrefabInstance: {fileID: 1771626499}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1771626505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1771626500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
-  m_BuildHeightMesh: 0
 --- !u!1 &1810036657
 GameObject:
   m_ObjectHideFlags: 0
@@ -6744,6 +6681,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Building_Corner (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8056585655830393094, guid: 6ee1f245ef2134809bee611ed90b7fba, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6864,6 +6805,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Lamppost (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2525016832642184784, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2900733513348459754, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
       propertyPath: m_LocalPosition.x
       value: -76.65766
@@ -6982,6 +6927,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_CityLayout01
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6989,9 +6938,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1995507343}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1995507347}
   m_SourcePrefab: {fileID: 100100000, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
 --- !u!1 &1995507342 stripped
 GameObject:
@@ -7025,38 +6971,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
   m_PrefabInstance: {fileID: 1995507341}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1995507347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1995507342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
-  m_BuildHeightMesh: 0
 --- !u!1001 &2006971379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7068,6 +6982,10 @@ PrefabInstance:
     - target: {fileID: 5117390646883473045, guid: a3016502afd474544918bb057934e148, type: 3}
       propertyPath: m_Name
       value: LD_Wall (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117390646883473045, guid: a3016502afd474544918bb057934e148, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5498700543252827183, guid: a3016502afd474544918bb057934e148, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7171,6 +7089,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Car01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8969386986308871347, guid: 584710081030b47128662b02ff983b37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7192,6 +7114,10 @@ PrefabInstance:
     - target: {fileID: 2525016832642184784, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
       propertyPath: m_Name
       value: LD_Lamppost (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2525016832642184784, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2900733513348459754, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7319,6 +7245,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Overhang
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f33c2ea901f24363a5815e2d5ef27ac, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7340,6 +7270,10 @@ PrefabInstance:
     - target: {fileID: 2525016832642184784, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
       propertyPath: m_Name
       value: LD_Lamppost (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2525016832642184784, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2900733513348459754, guid: d6fc69b5d4f554c378c6cfd081014506, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7402,6 +7336,10 @@ PrefabInstance:
     - target: {fileID: 1247217077566333980, guid: 769d75a48caf7462abfc9aed7c58e2a6, type: 3}
       propertyPath: m_Name
       value: LD_Barrier (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1247217077566333980, guid: 769d75a48caf7462abfc9aed7c58e2a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1874854235499413158, guid: 769d75a48caf7462abfc9aed7c58e2a6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7527,6 +7465,70 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8055010747623888206, guid: 1ef2a3e1905b84ae683eab23b3c36b0f, type: 3}
   m_PrefabInstance: {fileID: 2123361636}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2130286185
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2130286186}
+  - component: {fileID: 2130286187}
+  m_Layer: 0
+  m_Name: NavMesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2130286186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130286185}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 32.54762, y: 46.02241, z: 29.59975}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2130286187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130286185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 1129ebd7848d9fd4489d257ad23aac1f, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1001 &2138517224
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7595,6 +7597,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_CityLayout01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7602,9 +7608,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2138517226}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2138517230}
   m_SourcePrefab: {fileID: 100100000, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
 --- !u!1 &2138517225 stripped
 GameObject:
@@ -7638,38 +7641,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8ef437595178b4bce9d7da77f37c63e8, type: 3}
   m_PrefabInstance: {fileID: 2138517224}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2138517230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2138517225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: d98281a1423e9bb46848c08e8b63f999, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1001 &3723987560736502461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7748,6 +7719,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LD_Barrier (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1247217077566333980, guid: 769d75a48caf7462abfc9aed7c58e2a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1874854235499413158, guid: 769d75a48caf7462abfc9aed7c58e2a6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -82.26021
@@ -7809,3 +7784,4 @@ SceneRoots:
   - {fileID: 446449419}
   - {fileID: 579159709}
   - {fileID: 1535425603}
+  - {fileID: 2130286186}

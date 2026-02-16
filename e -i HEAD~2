@@ -1,0 +1,49 @@
+[33m8ee5ef0[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mNavMesh[m[33m)[m Deleted unnecessary scene examples for skybox
+[33m131389e[m Imported skyboxes, character models, scibase model
+[33mc664bd4[m[33m ([m[1;31morigin/NavMesh[m[33m)[m Working test dict for clipboard
+[33m723532c[m Fixed clipboard showing and hiding
+[33m4a53403[m[33m ([m[1;32mmaster[m[33m)[m Fixed nav surface
+[33m1be65ee[m[33m ([m[1;31morigin/master[m[33m)[m Merge pull request #13 from solomony12/BeginningMainLevel
+[33m1900517[m[33m ([m[1;31morigin/BeginningMainLevel[m[33m)[m Merge branch 'master' into BeginningMainLevel
+[33mf620c7d[m[33m ([m[1;32mBeginningMainLevel[m[33m)[m Merge branch 'BeginningMainLevel' of https://github.com/solomony12/TheLastDay2026 into BeginningMainLevel
+[33mc9e541a[m[33m ([m[1;32mWorkingDraft0[m[33m)[m Merge pull request #11 from solomony12/WorkingDraft0
+[33m69bf5da[m Test: trying to fix missing city area
+[33m4fd9ba2[m[33m ([m[1;31morigin/WorkingDraft0[m[33m)[m Intial attempt at clipboard; Added NavMeshObstable for buildings and such
+[33m2b524f7[m[33m ([m[1;31morigin/ModelChar[m[33m)[m Merge pull request #10 from solomony12/WorkingDraft0
+[33md188ecf[m Connected MainLevel into the pipeline
+[33mef84f73[m Merge pull request #9 from solomony12/BeginningMainLevel
+[33mfaa7224[m Merge pull request #8 from solomony12/soli-branch
+[33m4209841[m[33m ([m[1;31morigin/soli-branch[m[33m, [m[1;32msoli-branch[m[33m)[m Ending character credits working
+[33mc551519[m Added more objects, continued making level
+[33m1a85fa3[m Continue making level
+[33m3d93ad1[m Self cure added
+[33mbdaba29[m Initial setup for character credits ending script
+[33m94f02bb[m Add more models
+[33m2b71527[m Imported models, made prefabs, began building a test level
+[33m872c0ce[m Merge pull request #7 from solomony12/soli-branch
+[33m4eae0f7[m Made sure you can't pause while fade transitioning
+[33m3282f64[m Fade transitions for all current screens
+[33m5c61879[m Fixed main credits on Main Menu
+[33m77aa60d[m Fixed display settings not working in build
+[33md40515e[m Merge pull request #6 from solomony12/SampleSceneSetupPlayer
+[33m8a59db2[m[33m ([m[1;31morigin/SampleSceneSetupPlayer[m[33m, [m[1;32mSampleSceneSetupPlayer[m[33m)[m Enabled mouse update in player control code
+[33md76297e[m Decreased distance required for player to inject cure
+[33m55b284c[m Merge pull request #5 from solomony12/SampleSceneSetupPlayer
+[33m4ed06e5[m Fixed player not resetting when returning to Main Menu
+[33m14bb5d8[m Attack added to system
+[33m3dfb5b7[m Mostly fixed the ZombieAI; added health updates for player
+[33m68c12c1[m Connected cure system in the editor
+[33m56bd6be[m Zombie pauses and resumes as needed for when game is paused; test materials added
+[33m551fd61[m Zombie has idle movement when not chasing
+[33m385c555[m Initial zombie AI. Zombie will chase you if it spots you until you leave its range
+[33mc3d3b9a[m Merge pull request #4 from solomony12/SampleSceneSetupPlayer
+[33m20f246c[m Sample scene update for showing scale when level building
+[33m7070b25[m Merge pull request #3 from solomony12/MainTemplateCommit
+[33m22e1a9e[m[33m ([m[1;31morigin/MainTemplateCommit[m[33m, [m[1;32mMainTemplateCommit[m[33m)[m Code updated for settings and SOLID from B4C project
+[33m61f7842[m Merge pull request #2 from solomony12/solomony12-patch-1
+[33mb48004e[m Initialize README with game details and controls
+[33m99291ef[m Merge pull request #1 from solomony12/MAIN_INITIAL_GAME_COMMIT
+[33m69bb397[m[33m ([m[1;31morigin/MAIN_INITIAL_GAME_COMMIT[m[33m, [m[1;32mMAIN_INITIAL_GAME_COMMIT[m[33m)[m Created and connected all basic screens together (good commit to clone for new games
+[33mc6b4617[m Created MainMenu and Settings scene copied from BSF
+[33m34c0c8f[m Copied scripts over for needed basic gameplay setup (movement works)
+[33m99cd357[m Initial Unity project setup commit
