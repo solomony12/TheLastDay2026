@@ -303,7 +303,7 @@ public class SurvivalCredits : MonoBehaviour
         Sprite image = Resources.Load<Sprite>($"{Constants.profilePicturesPath}/{name}_Screenshot");
         if (image == null)
         {
-            characterPicture.sprite = null;
+            characterPicture.sprite = Resources.Load<Sprite>($"{Constants.profilePicturesPath}/Newsboy_Screenshot");
         }
         else
         {

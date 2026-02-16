@@ -8,7 +8,7 @@ public class CureSystem : MonoBehaviour
 {
     public static CureSystem Instance;
 
-    private readonly int maxCures = 4;
+    private readonly int maxCures = 5;
 
     private int cureAmounts;
 
