@@ -207,7 +207,7 @@ public class SettingsMenuUI : MonoBehaviour
     public void ResumeGame()
     {
         SettingsIsOpen = false;
-        SceneTransition.Instance.StartTransitionUnload(Constants.settingsSceneString, Constants.settingsFadeTime);
+        SceneTransition.Instance.StartTransitionUnload(Constants.settingsSceneString, 0f);
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         PlayerController.EnablePlayerControl();
     }

@@ -124,15 +124,17 @@ public class SceneTransition : MonoBehaviour
         IsTransitioning = true;
         PlayerController.DisablePlayerControl();
 
-        HoverCaptions.Instance.HideCaptions();
-        Captions.Instance.HideCaptions(0);
-
         // Fade in
         yield return StartCoroutine(Fade(0f, 1f, fadeDuration));
 
         // Load the new scene
         yield return SceneManager.LoadSceneAsync(sceneName, sceneMode);
         PlayerController.DisablePlayerControl();
+
+        HoverCaptions.Instance.HideCaptions();
+        Captions.Instance.HideCaptions(0);
+
+        // TODO: Set character starting position
 
         // Fade out
         yield return StartCoroutine(Fade(1f, 0f, fadeDuration));

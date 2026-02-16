@@ -645,6 +645,7 @@ MonoBehaviour:
   interact: Interact
   escape: Escape
   shoot: Shoot
+  selfCure: SelfCure
 --- !u!143 &833033358
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1028,6 +1029,7 @@ GameObject:
   - component: {fileID: 1525983665}
   - component: {fileID: 1525983667}
   - component: {fileID: 1525983666}
+  - component: {fileID: 1525983668}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1152,6 +1154,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CureSystem
   currentHealthStatus: 0
+--- !u!114 &1525983668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525983660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ca820a1f50f5041a9613c15f20dabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CureSelf
 --- !u!1 &1755852414
 GameObject:
   m_ObjectHideFlags: 0
