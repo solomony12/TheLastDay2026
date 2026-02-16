@@ -45,6 +45,8 @@ public class ZombieAI : MonoBehaviour
 
     private bool zombieCured = false;
 
+    private AudioClip zombieAttack;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -59,6 +61,8 @@ public class ZombieAI : MonoBehaviour
         {
             return;
         }
+
+        zombieAttack = Resources.Load<AudioClip>($"{Constants.sfxPath}/zombie_attack");
 
         MoveToTarget();
         AttackTarget();
@@ -216,6 +220,12 @@ public class ZombieAI : MonoBehaviour
         CureSystem.Instance.InfectPlayer();
         // TODO: Attack animation
         animator.SetBool("isWalking", false);
+        if (zombieAttack == null)
+        {
+            Debug.LogError("Sound not found for attack");
+        }
+        AudioManager.Instance.PlaySFX(zombieAttack);
+        Captions.Instance.TimedShowCaptions("Ouch!", 1f);
 
         // Wait for attack animation duration
         yield return new WaitForSeconds(attackDuration);
