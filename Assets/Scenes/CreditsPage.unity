@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &31938895
 RectTransform:
   m_ObjectHideFlags: 0
@@ -556,15 +556,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.63522005, g: 0.63522005, b: 0.63522005, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 2ef19634d5d1bc848a8c4fc916555b71, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -599,7 +599,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 820, y: -462}
-  m_SizeDelta: {x: 150, y: 70}
+  m_SizeDelta: {x: 170, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1493799154
 GameObject:
@@ -852,19 +852,28 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Soli: Lead Programmer, Animations, Sound Editor, Videos
+  m_text: '- Soli: Lead Programmer, Sound Editor, Writer
 
-    - Thatcher:
-    3D Modeler - Environment & Props, Level Design
+    - Thatcher: 3D Modeler
+    - Environment & Props, Level Design
 
-    - Isabel: 3D Modeler - Characters,
-    UI Art, Rigging
+    - Isabel: 3D Modeler - Characters, UI
+    Art, Rigging, Animations
 
     - Quinn: 3D Modeler - Furniture & Props
 
+    -
+    Berkeley: Writer
 
-    Sound effects
-    and any additional music are licensed from Pixabay.'
+
+    Sound effects and any additional music are licensed from
+    Pixabay.
+
+
+    "Universfield Melancholic Soundscape" by Universfield from Pixabay
+
+    "Russian
+    Folk Waltz" by Roman Sol from Pixabay'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
