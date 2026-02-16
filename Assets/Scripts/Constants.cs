@@ -9,6 +9,7 @@ public class Constants : MonoBehaviour
     public static readonly string creditsSceneString = "CreditsPage";
     public static readonly string mainSceneString = "MainLevel";
     public static readonly string endingCharacterCreditsSceneString = "EndingCharacterCreditsScene";
+    public static readonly string clipboardSceneString = "Clipboard";
 
     [Header("Tags")]
     public static readonly string untaggedTag = "Untagged";
