@@ -17,7 +17,11 @@ public class Clipboard : MonoBehaviour
     private static int currentPatient = 0;
 
     private string[] names;
-    private Dictionary<string, string> descriptionDict;
+    private Dictionary<string, string> descriptionDict
+        = new Dictionary<string, string>
+        {
+            { "TEST_ZOMBIE", "- Tall\n- Stupid\n- Dumb"},
+        };
 
     private TMP_Text characterName;
     private TMP_Text description;
