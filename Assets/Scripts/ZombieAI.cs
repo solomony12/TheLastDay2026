@@ -14,7 +14,7 @@ public class ZombieAI : MonoBehaviour
 
     private readonly float agentSpeed = 1.5f;
 
-    private float attackRadius = 2.0f;
+    private float attackRadius = 1.5f;
     private readonly float attackCooldown = 2.0f;
     private float attackTimer = 0f;
     private bool isAttacking = false;
@@ -296,6 +296,7 @@ public class ZombieAI : MonoBehaviour
         zombieCured = true;
         agent.isStopped = true;
         gameObject.tag = Constants.untaggedTag;
+        animator.SetBool("isWalking", false);
 
         Destroy(agent); // remove NavMeshAgent
         Destroy(this); // remove the ZombieAI script
