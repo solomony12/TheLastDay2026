@@ -8,7 +8,7 @@ public class CureSystem : MonoBehaviour
 {
     public static CureSystem Instance;
 
-    private readonly int maxCures = 1;
+    private readonly int maxCures = 4;
 
     private int cureAmounts;
 
@@ -128,6 +128,8 @@ public class CureSystem : MonoBehaviour
         else
         {
             // Turned into a zombie
+            // TODO: Ending
+            SceneTransition.Instance.StartTransition(Constants.mainMenuSceneString);
         }
     }
 

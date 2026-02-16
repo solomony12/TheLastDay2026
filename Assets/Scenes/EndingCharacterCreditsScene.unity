@@ -396,7 +396,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -430, y: 216}
+  m_AnchoredPosition: {x: -430, y: 242}
   m_SizeDelta: {x: 700, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &280854110
@@ -419,11 +419,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hello there this is some very long text to simulate the ending. I would
-    estimate that you can have around [] amount of characters which gives you a lot
-    of space to play around with. By the way, if you're seeing this in the build,
-    this is a bug (oh no!). Please report it to your nearest USSR government official
-    for processing.
+  m_text: 'After all the survivors were gathered, the remaining zombies were gunned
+    down without a second thought in front of you.
+
+    The world soon returned to
+    normal but you''ll never erase those memories from your cure delivery days as
+    a child.
+
+    You decided to search up each person to see their past or how they
+    were doing.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1083,7 +1087,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Name
+  m_text: Results
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
