@@ -21,7 +21,7 @@ public class Constants : MonoBehaviour
     [Header("Paths")]
     public static readonly string sfxPath = "SFX";
     public static readonly string musicPath = "Music";
-    public static readonly string profilePicturesPath = "Art/ProfilePictures";
+    public static readonly string profilePicturesPath = "CharacterScreenshots";
 
     [Header("Music Audio Clips")]
     public static AudioClip mainMusic = Resources.Load<AudioClip>($"{musicPath}/MainTheme");

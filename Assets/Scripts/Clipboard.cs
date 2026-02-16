@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
@@ -17,15 +15,52 @@ public class Clipboard : MonoBehaviour
     private static int currentPatient = 0;
 
     private string[] names;
+
     private Dictionary<string, string> descriptionDict
         = new Dictionary<string, string>
         {
-            { "TEST_ZOMBIE", "- Tall\n- Stupid\n- Dumb"},
+            { "TEST_ZOMBIE", "- Tall\n- Slow moving\n- Blank expression\n- Torn clothes\n- Groans constantly\n- One shoe missing\n- Cloudy eyes\n- Reaches out aimlessly\n- Smells of decay\n- Used to be someone" },
+
+            { "Baker", "- Makes bread every morning\n- Immigrant from Ireland\n- Has a wife and kids\n- Wakes up at 4 a.m.\n- Flour always on his sleeves\n- Knows everyone in town\n- Struggling with debt\n- Gives day-old bread to the poor\n- Smells like yeast\n- Hands rough from work" },
+
+            { "Boy", "- 8 years old\n- Loves drawing superheroes\n- Afraid of the dark\n- Missing his front tooth\n- Wears a red backpack\n- Cries when overwhelmed\n- Wants to be a firefighter\n- Trusts adults easily\n- Scraped knees\n- Carries a stuffed animal" },
+
+            { "BusinessMan", "- Owns multiple companies\n- Always on his phone\n- Drives a luxury car\n- Speaks confidently\n- Rarely home\n- Donates to charity publicly\n- Competitive by nature\n- Expensive tailored suits\n- Has political connections\n- Measures time in money" },
+
+            { "Cat", "- Orange tabby\n- Friendly but skittish\n- Catches mice\n- Purrs loudly\n- Sleeps most of the day\n- Missing part of one ear\n- Rubs against strangers\n- Independent\n- Soft fur\n- Doesn’t understand what’s happening" },
+
+            { "MilitarySoldier", "- Decorated veteran\n- Follows orders strictly\n- Has seen combat\n- Wakes from nightmares\n- Keeps boots polished\n- Protective of civilians\n- Scar across cheek\n- Writes letters home\n- Physically fit\n- Trained to survive" },
+
+            { "Nun", "- Devoutly religious\n- Volunteers at shelters\n- Took a vow of poverty\n- Soft-spoken\n- Wears a simple habit\n- Spends hours in prayer\n- Runs a soup kitchen\n- Forgives easily\n- Believes suffering has meaning\n- Owns very little" },
+
+            { "Nurse", "- Works long hospital shifts\n- Calm under pressure\n- Caring toward patients\n- Drinks too much coffee\n- Missed family holidays\n- Knows how to triage injuries\n- Gentle voice\n- Wears worn-out sneakers\n- Holds hands during final moments\n- Exhausted but keeps going" },
+
+            { "OldMan", "- 87 years old\n- War veteran\n- Walks with a cane\n- Tells long stories\n- Lives alone\n- Keeps faded photographs\n- Hard of hearing\n- Watches the news daily\n- Feels forgotten\n- Remembers another time" },
+
+            { "Prisoner", "- Serving time for armed robbery\n- Claims he’s innocent\n- Covered in tattoos\n- Grew up in poverty\n- Quick temper\n- Protective of younger inmates\n- Reads philosophy books\n- Distrusts authority\n- Strong build\n- Says he wants a second chance" },
+
+            { "Punk", "- Loud and rebellious\n- Plays in a garage band\n- Bright dyed hair\n- Piercings and ripped clothes\n- Questions everything\n- Sleeps on friends’ couches\n- Writes angry lyrics\n- Laughs at danger\n- Hates being judged\n- Secretly cares deeply" }
         };
 
     private TMP_Text characterName;
     private TMP_Text description;
     private Image image;
+
+    private void Awake()
+    {
+        var zombies = CureSystem.Instance.zombies;
+
+        names = new string[zombies.Length];
+
+        for (int i = 0; i < zombies.Length; i++)
+        {
+            names[i] = zombies[i].name;
+        }
+
+        toggleClipboardAction.performed += ToggleClipboard;
+        nextPatientAction.performed += ChangePatientInfoNext;
+        previousPatientAction.performed += ChangePatientInfoPrev;
+    }
 
     private void OnEnable()
     {
@@ -50,43 +85,32 @@ public class Clipboard : MonoBehaviour
         if (scene.name == Constants.clipboardSceneString)
         {
             SetGameObjects();
+            UpdateInfo(0);
         }
-    }
-
-    private void Awake()
-    {
-        var zombies = CureSystem.Instance.zombies;
-        names = new string[zombies.Length];
-        for (int i = 0; i < zombies.Length; i++)
-        {
-            names[0] = zombies[i].name;
-        }
-
-        toggleClipboardAction.performed += ToggleClipboard;
-        nextPatientAction.performed += ChangePatientInfoNext;
-        previousPatientAction.performed += ChangePatientInfoPrev;
     }
 
     private void ToggleClipboard(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (!context.performed) return;
+
+        if (isClipboardUp)
         {
-            if (isClipboardUp)
-            {
-                SceneTransition.Instance.StartTransitionUnload(Constants.clipboardSceneString, 0f);
-                isClipboardUp = false;
-            }
-            else
-            {
-                SceneTransition.Instance.StartTransition(Constants.clipboardSceneString, UnityEngine.SceneManagement.LoadSceneMode.Additive, 0f);
-                isClipboardUp = true;
-            }
+            SceneTransition.Instance.StartTransitionUnload(Constants.clipboardSceneString, 0f);
+            isClipboardUp = false;
+        }
+        else
+        {
+            SceneTransition.Instance.StartTransition(
+                Constants.clipboardSceneString,
+                LoadSceneMode.Additive,
+                0f
+            );
+            isClipboardUp = true;
         }
     }
 
     private void SetGameObjects()
     {
-        // TODO: true gameobject names
         characterName = GameObject.Find("Name").GetComponent<TMP_Text>();
         description = GameObject.Find("Description").GetComponent<TMP_Text>();
         image = GameObject.Find("Image").GetComponent<Image>();
@@ -95,36 +119,41 @@ public class Clipboard : MonoBehaviour
     private void ChangePatientInfoNext(InputAction.CallbackContext context)
     {
         if (context.performed && isClipboardUp)
-        {
             UpdateInfo(1);
-        }
     }
 
     private void ChangePatientInfoPrev(InputAction.CallbackContext context)
     {
         if (context.performed && isClipboardUp)
-        {
             UpdateInfo(-1);
-        }
     }
 
-    private void UpdateInfo(int nextOrPrev)
+    private void UpdateInfo(int direction)
     {
-        int length = names.Length - 1;
-        currentPatient += nextOrPrev;
+        if (names == null || names.Length == 0)
+            return;
+
+        currentPatient += direction;
+
         if (currentPatient < 0)
-            currentPatient = length;
-        else if (currentPatient >= length)
+            currentPatient = names.Length - 1;
+        else if (currentPatient >= names.Length)
             currentPatient = 0;
 
-        // TODO: Update info
         string currentName = names[currentPatient];
-        string currentDescription = descriptionDict[currentName];
 
         characterName.text = currentName;
-        description.text = currentDescription;
-        // TODO: load image
-        image.sprite = Resources.Load<Sprite>($"{Constants.profilePicturesPath}/{currentName}");
-    }
 
+        if (descriptionDict.TryGetValue(currentName, out string currentDescription))
+            description.text = currentDescription;
+        else
+            description.text = "No description available.";
+
+        Sprite loadedSprite = Resources.Load<Sprite>(
+            $"{Constants.profilePicturesPath}/{currentName}_Screenshot"
+        );
+
+        if (loadedSprite != null)
+            image.sprite = loadedSprite;
+    }
 }
