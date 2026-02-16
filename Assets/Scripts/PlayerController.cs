@@ -36,8 +36,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Camera Parameters")]
     [SerializeField] private Transform cameraPivot;
-    [SerializeField] private float cameraStandingHeight = 1.6f;
-    [SerializeField] private float cameraCrouchingHeight = 0.8f;
+    [SerializeField] private float cameraStandingHeight = 2.5f;
+    [SerializeField] private float cameraCrouchingHeight = 1f;
 
     [Header("Starting Information")]
     private Vector3 gameStartPlayerPos = new Vector3(13.2f, 1.08f, 1.4f);
