@@ -53,7 +53,7 @@ public class SurvivalCredits : MonoBehaviour
                 "CURED: Former members of her parish came forward with stories of coercion and emotional manipulation disguised as spiritual guidance. Donations meant for charity had quietly funded personal comforts. After the cure, she insisted the outbreak was divine punishment and showed little empathy for the grieving." },
 
             { new SurviveZombie("Nun", false),
-                "UNCURED:She operated a soup kitchen that never turned anyone away and routinely gave up her own meals so others could eat. She visited hospitals daily and organized clothing drives every winter. Survivors recall her staying behind to guide children out when panic erupted." },
+                "UNCURED: She operated a soup kitchen that never turned anyone away and routinely gave up her own meals so others could eat. She visited hospitals daily and organized clothing drives every winter. Survivors recall her staying behind to guide children out when panic erupted." },
 
             { new SurviveZombie("Nurse", true),
                 "CURED: Hospital staff later disclosed repeated complaints about negligence and diverted medication supplies. She had been under quiet review before the outbreak began. After recovery, she demanded authority in medical camps despite past mistakes that had already cost lives." },
