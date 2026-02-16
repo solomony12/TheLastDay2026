@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Clipboard : MonoBehaviour
 {
@@ -16,7 +17,11 @@ public class Clipboard : MonoBehaviour
     private static int currentPatient = 0;
 
     private string[] names;
-    private Dictionary<string, string> descriptionDict;
+    private Dictionary<string, string> descriptionDict
+        = new Dictionary<string, string>
+        {
+            { "TEST_ZOMBIE", "- Tall\n- Stupid\n- Dumb"},
+        };
 
     private TMP_Text characterName;
     private TMP_Text description;
@@ -27,12 +32,25 @@ public class Clipboard : MonoBehaviour
         toggleClipboardAction.Enable();
         nextPatientAction.Enable();
         previousPatientAction.Enable();
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
+
     private void OnDisable()
     {
         toggleClipboardAction.Disable();
         nextPatientAction.Disable();
         previousPatientAction.Disable();
+
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == Constants.clipboardSceneString)
+        {
+            SetGameObjects();
+        }
     }
 
     private void Awake()
@@ -61,7 +79,6 @@ public class Clipboard : MonoBehaviour
             else
             {
                 SceneTransition.Instance.StartTransition(Constants.clipboardSceneString, UnityEngine.SceneManagement.LoadSceneMode.Additive, 0f);
-                SetGameObjects();
                 isClipboardUp = true;
             }
         }
