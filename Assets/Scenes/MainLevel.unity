@@ -4588,6 +4588,7 @@ GameObject:
   - component: {fileID: 1254899949}
   - component: {fileID: 1254899948}
   - component: {fileID: 1254899947}
+  - component: {fileID: 1254899954}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4725,6 +4726,69 @@ Transform:
   - {fileID: 247672869}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1254899954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254899946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aee319bd953730458cf9419111df703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Clipboard
+  toggleClipboardAction:
+    m_Name: Toggle Clipboard
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 3a1d7a17-f77e-476e-9a46-bc35ff08f49e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 4a501d95-2722-4362-9dff-89fad82f7678
+      m_Path: <Keyboard>/k
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Toggle Clipboard
+      m_Flags: 0
+    m_Flags: 0
+  nextPatientAction:
+    m_Name: Next Patient
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 467e4201-4bc8-4521-922f-b1a1b52e0918
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 2a5c3290-a668-41c1-95d0-ff27b0361c0a
+      m_Path: <Keyboard>/l
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Next Patient
+      m_Flags: 0
+    m_Flags: 0
+  previousPatientAction:
+    m_Name: Previous Patient
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: fa35244d-5922-4d04-8721-ed92cbb5abf9
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 2a366c7d-f119-4536-8b3b-c5d2fbfd7662
+      m_Path: <Keyboard>/j
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Previous Patient
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1001 &1262352548
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7187,6 +7251,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1535425603}
     m_Modifications:
+    - target: {fileID: 8056585655830393094, guid: 6ee1f245ef2134809bee611ed90b7fba, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f33c2ea901f24363a5815e2d5ef27ac, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -7250,10 +7318,6 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9f33c2ea901f24363a5815e2d5ef27ac, type: 3}
       propertyPath: m_Name
       value: LD_Overhang
-      objectReference: {fileID: 0}
-    - target: {fileID: 8056585655830393094, guid: 6ee1f245ef2134809bee611ed90b7fba, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
