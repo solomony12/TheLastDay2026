@@ -135,6 +135,8 @@ public class CureSystem : MonoBehaviour
         {
             // Turned into a zombie
             // TODO: Ending
+            currentHealthStatus = HealthStatus.Zombie;
+            UpdateHealth(currentHealthStatus);
             SceneTransition.Instance.StartTransition(Constants.endingCharacterCreditsSceneString);
         }
     }
