@@ -18,7 +18,7 @@ public class CureSystem : MonoBehaviour
 
     private TMP_Text curesText;
 
-    GameObject[] zombies;
+    public GameObject[] zombies;
 
     public enum HealthStatus
     {
@@ -46,10 +46,7 @@ public class CureSystem : MonoBehaviour
         curesText = GameObject.FindWithTag(Constants.curesTextTag).GetComponent<TMP_Text>();
         if (curesText == null)
             Debug.LogError("CuresText not found");
-    }
 
-    private void Start()
-    {
         GetZombies();
         UpdateCures(maxCures);
         UpdateHealth(HealthStatus.Healthy);
