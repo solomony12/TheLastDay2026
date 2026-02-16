@@ -117,6 +117,15 @@ public class SurvivalCredits : MonoBehaviour
     private void Start()
     {
         AudioManager.Instance.PlaySFX(gunshots);
+
+        if (CureSystem.Instance.currentHealthStatus != CureSystem.HealthStatus.Zombie)
+        {
+            characterEnding.text = "After all the survivors were gathered, the remaining zombies were gunned down without a second thought in front of you.\r\nThe world soon returned to normal but you'll never erase those memories from your cure delivery days as a child.\r\nYou decided to search up each person to see their past or how they were doing.";
+        }
+        else
+        {
+            characterEnding.text = "Your life ended too early as rather than a savior, you became one of them.\r\nWith the remaining cures lost on you, more zombies were gunned down than needed to had you remained alive.\r\nThose you did save... well, let's see what happened to them all.";
+        }
     }
 
     public void GetCanvasObjects()
@@ -178,6 +187,17 @@ public class SurvivalCredits : MonoBehaviour
             }
         }
 
+        // Add the player as the last character
+        string playerEnding = null;
+        if (CureSystem.Instance.currentHealthStatus != CureSystem.HealthStatus.Healthy && CureSystem.Instance.currentHealthStatus != CureSystem.HealthStatus.Zombie)
+        {
+            playerEnding = "As for you… well, you became a zombie.\r\nBy the time the infection took hold, it was so late that neither you nor anyone else realized what had happened.\r\nBefore long, the transformation was complete, and you had unleashed another zombie apocalypse.";
+        }
+        if (playerEnding != null)
+        {
+            nameToConclusionDict.Add("You (Delivery Boy)", playerEnding);
+        }
+
         // Create enumerator for later use
         _enumerator = nameToConclusionDict.GetEnumerator();
     }
@@ -220,9 +240,12 @@ public class SurvivalCredits : MonoBehaviour
         Sprite image = Resources.Load<Sprite>($"{Constants.profilePicturesPath}/{name}_Screenshot");
         if (image == null)
         {
-            Debug.LogError("Picture not found");
+            characterPicture.sprite = null;
         }
-        characterPicture.sprite = image;
+        else
+        {
+            characterPicture.sprite = image;
+        }
         StartTyping(text);
     }
 

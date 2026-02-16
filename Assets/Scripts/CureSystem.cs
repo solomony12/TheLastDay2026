@@ -126,7 +126,7 @@ public class CureSystem : MonoBehaviour
     {
         isPlayerInfected = true;
 
-        if (currentHealthStatus < HealthStatus.Zombie)
+        if (currentHealthStatus < HealthStatus.Zombie - 1)
         {
             currentHealthStatus++;
             UpdateHealth(currentHealthStatus);
@@ -135,7 +135,7 @@ public class CureSystem : MonoBehaviour
         {
             // Turned into a zombie
             // TODO: Ending
-            SceneTransition.Instance.StartTransition(Constants.mainMenuSceneString);
+            SceneTransition.Instance.StartTransition(Constants.endingCharacterCreditsSceneString);
         }
     }
 
