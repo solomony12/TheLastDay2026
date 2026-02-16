@@ -8,6 +8,7 @@ public class Constants : MonoBehaviour
     public static readonly string tutorialSceneName = "TutorialVideo";
     public static readonly string creditsSceneString = "CreditsPage";
     public static readonly string mainSceneString = "SampleScene";
+    public static readonly string endingCharacterCreditsSceneString = "EndingCharacterCreditsScene";
 
     [Header("Tags")]
     public static readonly string untaggedTag = "Untagged";
@@ -17,8 +18,9 @@ public class Constants : MonoBehaviour
     public static readonly string curesTextTag = "CuresText";
 
     [Header("Paths")]
-    public static string sfxPath = "SFX";
+    public static readonly string sfxPath = "SFX";
     public static readonly string musicPath = "Music";
+    public static readonly string profilePicturesPath = "Art/ProfilePictures";
 
     [Header("Music Audio Clips")]
     public static AudioClip mainMusic = Resources.Load<AudioClip>($"{musicPath}/MainTheme");

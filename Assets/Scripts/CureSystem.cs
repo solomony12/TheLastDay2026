@@ -2,20 +2,23 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CureSystem : MonoBehaviour
 {
     public static CureSystem Instance;
 
-    private readonly int maxCures = 5;
+    private readonly int maxCures = 1;
 
     private int cureAmounts;
 
-    private Dictionary<string, bool> zombiesCuredDict = new Dictionary<string, bool>();
+    public static Dictionary<string, bool> zombiesCuredDict = new Dictionary<string, bool>();
 
     private bool isPlayerInfected = false;
 
     private TMP_Text curesText;
+
+    GameObject[] zombies;
 
     public enum HealthStatus
     {
@@ -56,6 +59,18 @@ public class CureSystem : MonoBehaviour
     {
         cureAmounts = newAmount;
         curesText.text = $"Cures: {newAmount.ToString()}\nStatus: {currentHealthStatus}";
+
+        if (cureAmounts <= 0)
+        {
+            foreach (var zombie in zombies)
+            {
+                Destroy(zombie.GetComponent<ZombieAI>());
+            }
+            PlayerController.DisablePlayerControl();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            SceneTransition.Instance.StartTransition(Constants.endingCharacterCreditsSceneString);
+        }
     }
 
     private void UpdateHealth(HealthStatus status)
@@ -67,9 +82,31 @@ public class CureSystem : MonoBehaviour
 
     private void GetZombies()
     {
-        GameObject[] zombies = GameObject.FindGameObjectsWithTag(Constants.zombieTag);
-        foreach (var zombie in zombies)
+        zombiesCuredDict.Clear();
+        zombies = GameObject.FindGameObjectsWithTag(Constants.zombieTag);
+        foreach (GameObject zombie in zombies)
         {
+            // Initialize zombies
+            /*NavMeshAgent agent = zombie.GetComponent<NavMeshAgent>();
+            if (agent == null)
+            {
+                agent = zombie.AddComponent<NavMeshAgent>();
+            }
+            Rigidbody rb = zombie.GetComponent<Rigidbody>();
+            if (rb == null)
+            {
+                rb = zombie.AddComponent<Rigidbody>();
+            }
+            rb.isKinematic = true;
+            ZombieAI ai = zombie.GetComponent<ZombieAI>();
+            if (ai == null)
+            {
+                ai = zombie.AddComponent<ZombieAI>();
+            }*/
+
+            // Update NavMeshAgent for unique zombie speeds (ScriptableObjects)
+            // TODO:
+
             zombiesCuredDict.Add(zombie.name, false);
         }
     }
