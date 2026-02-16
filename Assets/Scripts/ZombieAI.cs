@@ -7,6 +7,8 @@ public class ZombieAI : MonoBehaviour
     private NavMeshAgent agent;
     [SerializeField] private Transform target;
 
+    Animator animator;
+
     private float chaseRadius = 8.0f;
     private float viewAngle = 60f;
 
@@ -69,81 +71,100 @@ public class ZombieAI : MonoBehaviour
         agent.stoppingDistance = attackRadius;
 
         idleCenter = transform.position;
+
+        animator = GetComponent<Animator>();
+        animator.SetBool("isWalking", false);
     }
 
     private void MoveToTarget()
     {
-        // Within distance and line-of-sight to start chasing
+        if (zombieCured) return;
+
         Vector3 direction = target.position - transform.position;
         float distance = direction.magnitude;
 
-        // Check distance
-        if (distance <= chaseRadius)
+        bool inChaseRange = distance <= chaseRadius;
+        bool inView = false;
+
+        if (inChaseRange)
         {
-            // Check line-of-sight
+            // Check line-of-sight and field-of-view
             Ray ray = new Ray(transform.position + Vector3.up, direction.normalized);
-            // Check if within field of view
             float angleToTarget = Vector3.Angle(transform.forward, direction);
 
-            if (targetSpotted ||
-                (Physics.Raycast(ray, out RaycastHit hit, chaseRadius)
-                && hit.transform.root == target
-                && angleToTarget <= viewAngle / 2)) // already locked on or remains in view
+            if (Physics.Raycast(ray, out RaycastHit hit, chaseRadius))
             {
-                //Debug.Log("Chase");
-                StopIdle();
-                targetSpotted = true;
-                agent.isStopped = false;
-                goingToLastKnownPosition = false;
-                lastKnownTargetPosition = target.position;
-                agent.destination = lastKnownTargetPosition;
-                // TODO: Moving animation
-
-                followTimer = followWaitCooldown;
-                return;
+                if (hit.transform.root == target && angleToTarget <= viewAngle / 2)
+                {
+                    inView = true;
+                }
             }
         }
 
-        targetSpotted = false;
-
-        // If it just lost sight, go to last known position
-        if (!goingToLastKnownPosition &&
-            !waitingAtLastKnownPosition &&
-            idleCoroutine == null)
+        // --- CHASE PLAYER ---
+        if ((inView || targetSpotted) && inChaseRange)
         {
-            goingToLastKnownPosition = true;
+            StopIdle(); // stop idling
+            targetSpotted = true;
+            goingToLastKnownPosition = false;
+            waitingAtLastKnownPosition = false;
+
+            agent.isStopped = false;
+            agent.speed = agentSpeed;
+            lastKnownTargetPosition = target.position;
+            agent.destination = lastKnownTargetPosition;
+            animator.SetBool("isWalking", true);
+
+            followTimer = followWaitCooldown;
+            return;
+        }
+
+        // Player completely out of chase range -> lose target
+        if (!inChaseRange)
+        {
+            targetSpotted = false;
+        }
+
+        // --- MOVE TO LAST KNOWN POSITION ---
+        if (goingToLastKnownPosition)
+        {
             agent.isStopped = false;
             agent.destination = lastKnownTargetPosition;
-            // TODO: Moving animation
+            animator.SetBool("isWalking", true);
+
+            if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+            {
+                goingToLastKnownPosition = false;
+                waitingAtLastKnownPosition = true;
+                agent.isStopped = true;
+                animator.SetBool("isWalking", false);
+            }
+            return;
         }
 
-        // Arrived at last known position
-        if (goingToLastKnownPosition &&
-            !agent.pathPending &&
-            agent.remainingDistance <= agent.stoppingDistance)
-        {
-            goingToLastKnownPosition = false;
-            waitingAtLastKnownPosition = true;
-            agent.isStopped = true;
-            // TODO: Idle animation
-        }
-
-        // Waiting at last known position before idling
+        // --- WAIT AT LAST KNOWN POSITION ---
         if (waitingAtLastKnownPosition)
         {
             followTimer -= Time.deltaTime;
-
             if (followTimer <= 0f)
             {
                 waitingAtLastKnownPosition = false;
                 followTimer = followWaitCooldown;
-
-                if (idleCoroutine == null)
-                {
-                    idleCoroutine = StartCoroutine(IdleMovement());
-                }
+                StartIdle(); // start idling after waiting
             }
+            return;
         }
+
+        // --- IDLE IF NOTHING ELSE ---
+        if (!isIdling && idleCoroutine == null)
+        {
+            StartIdle();
+        }
+    }
+
+    private void StartIdle()
+    {
+        idleCoroutine = StartCoroutine(IdleMovement());
     }
 
     private void StopIdle()
@@ -194,11 +215,12 @@ public class ZombieAI : MonoBehaviour
         // Apply damage
         CureSystem.Instance.InfectPlayer();
         // TODO: Attack animation
+        animator.SetBool("isWalking", false);
 
         // Wait for attack animation duration
         yield return new WaitForSeconds(attackDuration);
 
-        // TODO: Moving animation
+        animator.SetBool("isWalking", true);
 
         // Resume movement
         agent.isStopped = false;
@@ -223,7 +245,7 @@ public class ZombieAI : MonoBehaviour
                     agent.SetDestination(hit.position);
                     agent.isStopped = false;
                     isIdling = true;
-                    // TODO: Moving animation
+                    animator.SetBool("isWalking", true);
                 }
             }
 
@@ -234,7 +256,7 @@ public class ZombieAI : MonoBehaviour
                 agent.isStopped = true;
                 yield return new WaitForSeconds(lookAroundTime);
                 isIdling = false;
-                // TODO: Idle animation
+                animator.SetBool("isWalking", false);
 
                 // Wait a random time before next wander
                 float wait = Random.Range(waitTimeMin, waitTimeMax);
@@ -256,6 +278,7 @@ public class ZombieAI : MonoBehaviour
 
         agent.velocity = Vector3.zero;
         agent.acceleration = 0;
+        animator.speed = 0f;
     }
 
     public void ResumeZombie()
@@ -264,6 +287,7 @@ public class ZombieAI : MonoBehaviour
 
         agent.velocity = storedVelocity;
         agent.acceleration = storedAcceleration;
+        animator.speed = 1f;
     }
 
     public void ZombieCured()
