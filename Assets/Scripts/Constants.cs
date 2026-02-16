@@ -7,7 +7,7 @@ public class Constants : MonoBehaviour
     public static readonly string settingsSceneString = "Settings";
     public static readonly string tutorialSceneName = "TutorialVideo";
     public static readonly string creditsSceneString = "CreditsPage";
-    public static readonly string mainSceneString = "SampleScene";
+    public static readonly string mainSceneString = "MainLevel";
     public static readonly string endingCharacterCreditsSceneString = "EndingCharacterCreditsScene";
 
     [Header("Tags")]
