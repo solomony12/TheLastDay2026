@@ -8,11 +8,6 @@ public class ShootCure : MonoBehaviour
 {
     private Camera mainCamera;
     private GameObject player;
-    private GameObject gun;
-
-    [Header("Scanner Info")]
-    private Vector3 gunOrigPos = new Vector3(0.47f, -0.362f, 0.748f);
-    private Vector3 gunOrigRot = Vector3.zero;
 
     private PlayerInputHandler inputHandler;
     private HoverCaptions hoverCaptions;
@@ -29,9 +24,6 @@ public class ShootCure : MonoBehaviour
     {
         mainCamera = Camera.main;
         player = GameObject.FindWithTag(Constants.playerTag);
-        gun = GameObject.FindWithTag(Constants.gunTag);
-        gun.transform.position = gunOrigPos;
-        gun.transform.rotation = Quaternion.Euler(gunOrigRot);
         hoverCaptions = HoverCaptions.Instance;
         inputHandler = PlayerInputHandler.Instance;
         cureSystem = CureSystem.Instance;
