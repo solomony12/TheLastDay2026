@@ -137,6 +137,8 @@ public class CureSystem : MonoBehaviour
             // TODO: Ending
             currentHealthStatus = HealthStatus.Zombie;
             UpdateHealth(currentHealthStatus);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             SceneTransition.Instance.StartTransition(Constants.endingCharacterCreditsSceneString);
         }
     }

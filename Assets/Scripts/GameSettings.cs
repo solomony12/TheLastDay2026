@@ -199,13 +199,22 @@ public class GameSettings : MonoBehaviour
         }
         catch
         {
-            // Fallback to Unity defaults
-            Screen.fullScreenMode = FullScreenMode.Windowed;
-            Resolution defaultRes = Screen.currentResolution;
-            Screen.SetResolution(defaultRes.width, defaultRes.height, FullScreenMode.Windowed);
+            // Fallback to Unity defaults, WebGL aware
+#if UNITY_WEBGL
+            // WebGL: just let the canvas fill the browser viewport
+            Screen.fullScreenMode = FullScreenMode.FullScreenWindow; // uses browser size
             QualitySettings.vSyncCount = 1;
-            Debug.LogWarning("Failed to apply custom display settings. Reverted to Unity defaults.");
+            Debug.LogWarning("Failed to apply custom display settings. Using browser viewport for WebGL.");
+#else
+    // Desktop: fallback to current monitor resolution in windowed mode
+    Screen.fullScreenMode = FullScreenMode.Windowed;
+    Resolution defaultRes = Screen.currentResolution;
+    Screen.SetResolution(defaultRes.width, defaultRes.height, FullScreenMode.Windowed);
+    QualitySettings.vSyncCount = 1;
+    Debug.LogWarning("Failed to apply custom display settings. Reverted to Unity defaults.");
+#endif
         }
+
     }
 
 
